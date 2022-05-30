@@ -22,7 +22,7 @@ public class BalancedParentheses {
         return false;
     }
 
-    public static boolean areTheyMatch(char opening, char closing) {
+    public static boolean doTheyMatch(char opening, char closing) {
         for ( int i = 0; i < openings.length; i++) {
             if (opening == openings[i]) {
                 return closing == closings[i];
@@ -41,7 +41,7 @@ public class BalancedParentheses {
             }
             else if ( isClosing(c)) {
                 if ( stack.isEmpty() ) return false; // if there were no previously stored openings -> it is already malformed e.g.: ]
-                if ( !areTheyMatch(stack.pop(), c)) return false; // get the immediate opening and check if it matches to the closing if not -> malformed
+                if ( !doTheyMatch(stack.pop(), c)) return false; // get the immediate opening and check if it matches to the closing if not -> malformed
                 System.out.println(stack);
                 // note: ([{((((([{} ... no matter how many openings you have, at some point you have to close it regardless how deep is the nest,
                 // the first 'closing' must match with the last opening character
