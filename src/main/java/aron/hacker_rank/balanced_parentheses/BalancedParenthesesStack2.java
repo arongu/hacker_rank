@@ -1,8 +1,8 @@
-package aron.hacker_rank;
+package aron.hacker_rank.balanced_parentheses;
 
 import java.util.Stack;
 
-public class BalancedParentheses2 {
+public class BalancedParenthesesStack2 {
     public static boolean isOpening(final char c) {
         return c == '(' || c == '[' || c == '{';
     }

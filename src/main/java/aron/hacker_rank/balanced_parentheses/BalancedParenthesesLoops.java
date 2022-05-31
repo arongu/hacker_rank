@@ -1,6 +1,6 @@
-package aron.hacker_rank;
+package aron.hacker_rank.balanced_parentheses;
 
-public class BalancedParentheses3 {
+public class BalancedParenthesesLoops {
     public static boolean isOpening(final char c) {
         return c == '(' || c == '[' || c == '{';
     }
