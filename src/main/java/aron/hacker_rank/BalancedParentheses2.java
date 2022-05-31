@@ -25,7 +25,7 @@ public class BalancedParentheses2 {
             if ( isOpening(c)) {
                 stack.push(c);
                 System.out.println(stack);
-            } else if (isClosing(c)) {
+            } else if ( isClosing(c)) {
                 if (stack.isEmpty()) return false;
                 if ( ! doTheyMatch(stack.pop(), c)) return false;
                 System.out.println(stack);
