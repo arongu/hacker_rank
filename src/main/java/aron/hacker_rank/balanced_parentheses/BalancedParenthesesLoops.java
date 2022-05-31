@@ -70,7 +70,7 @@ public class BalancedParenthesesLoops {
         final char[] arr = string.toCharArray();
         int[] counts = countOpeningsAndClosings(arr);
         int pos_opening = findFurthestOpening(arr);
-        int pos_closing = findNextClosing(pos_opening, arr);
+        int pos_closing = findNextClosing(pos_opening + 1, arr);
 
         System.out.println(string);
         System.out.println("openings/closings: " + counts[0] + " " + counts[1]);

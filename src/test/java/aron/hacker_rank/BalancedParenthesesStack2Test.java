@@ -20,6 +20,12 @@ public class BalancedParenthesesStack2Test {
     }
 
     @Test
+    public void isBalanced_shouldReturnFalse_whenStringHasOnlyOneOpeningParenthesesAtTheEnd() {
+        final String s = "this is my string(";
+        assertFalse(BalancedParenthesesStack2.isBalanced(s));
+    }
+
+    @Test
     public void isBalanced_shouldReturnTrue_whenStringHasTwoOneOpeningParentheses() {
         final String s = "this is my (string)";
         assertTrue(BalancedParenthesesStack2.isBalanced(s));
