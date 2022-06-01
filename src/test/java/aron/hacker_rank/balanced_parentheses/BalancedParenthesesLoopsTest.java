@@ -1,4 +1,4 @@
-package aron.hacker_rank;
+package aron.hacker_rank.balanced_parentheses;
 
 import aron.hacker_rank.balanced_parentheses.BalancedParenthesesLoops;
 import org.junit.jupiter.api.Test;
