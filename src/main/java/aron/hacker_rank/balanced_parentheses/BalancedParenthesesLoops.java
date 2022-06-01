@@ -68,23 +68,29 @@ public class BalancedParenthesesLoops {
 
     public static boolean isBalanced(final String string) {
         final char[] arr = string.toCharArray();
-        int[] counts = countOpeningsAndClosings(arr);
+        int[] counts     = countOpeningsAndClosings(arr); // count the openings and closings
+        if (counts[0] != counts[1]) return false;         // faile if the number of openings and closing are not equal
+
+        // find the furthest opening and itc closing parentheses
         int pos_opening = findFurthestOpening(arr);
         int pos_closing = findNextClosing(pos_opening + 1, arr);
-
+        // debug lines
         System.out.println(string);
         System.out.println("openings/closings: " + counts[0] + " " + counts[1]);
         System.out.println("pos_opening: " + pos_opening + " pos_closing: " + pos_closing);
 
+        // -1 is returned if there is no openings or closings
+        // keep going until there are no more closing or openings
         while (pos_opening != -1 && pos_closing != -1) {
             System.out.println("pos_opening: " + pos_opening + " pos_closing: " + pos_closing + " -- " + arr[pos_opening] + " " + arr[pos_closing]);
-
+            // check if the corresponding opening and closing parentheses are matching e.g.: ( ) [ ] { }
             if (doTheyMatch(arr[pos_opening], arr[pos_closing])){
-                counts[0]--; counts[1]--;
+                counts[0]--; counts[1]--; // if they count back both openings and closings
             } else {
-                return false;
+                return false; // if the corresponding parentheses fail e.g: ( ] { )
             }
-
+            // use the last parentheses coordinates and work from there
+            // openings are nearer, closings are further (beginning of string, the other is at the end of the string)
             pos_closing = findNextClosing(pos_closing + 1, arr);
             pos_opening = findPreviousOpening( pos_opening - 1, arr);
         }
