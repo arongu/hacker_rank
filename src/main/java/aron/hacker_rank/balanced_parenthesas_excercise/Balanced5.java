@@ -1,9 +1,9 @@
-package aron.hacker_rank.gyak;
+package aron.hacker_rank.balanced_parenthesas_excercise;
 
 import java.util.Stack;
 
 // ([{}])
-public class BalancedGyak5 {
+public class Balanced5 {
     public static boolean isOpening(final char c){
         return c == '(' || c == '[' || c == '{';
     }
