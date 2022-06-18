@@ -1,39 +1,37 @@
 package aron.hacker_rank.queue_impl;
 
-import aron.hacker_rank.balanced_parentheses.BalancedParenthesesLoops;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class QueueImplTest {
     @Test
-    public void call() {
-        final QueueWithPointers<Integer> x = new QueueWithPointers<>();
-        x.enqueue(1);
-        x.enqueue(2);
-        x.enqueue(3);
+    public void size_shouldReturnTheSizeOfTheEnqueudElements() {
+        final QueueWithPointers<Integer> queue = new QueueWithPointers<>();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
 
-        System.out.println(x.peek());
-        System.out.println();
+        assertEquals(3, queue.size());
+    }
 
-        x.show();
-        System.out.println();
+    @Test
+    public void comprehensiveTest() {
+        final QueueWithPointers<Integer> queue = new QueueWithPointers<>();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
 
-        System.out.println(x.dequeue());
-        x.show();
-        System.out.println();
+        assertEquals(1, queue.peek());
+        assertEquals(1, queue.dequeue());
+        assertEquals(2, queue.size());
 
-        x.dequeue();
-        x.show();
-        System.out.println();
+        assertEquals(2, queue.peek());
+        assertEquals(2, queue.dequeue());
+        assertEquals(1, queue.size());
 
-        x.dequeue();
-        x.show();
-        System.out.println();
-
-        x.dequeue();
-        x.show();
-        System.out.println();
+        assertEquals(3, queue.peek());
+        assertEquals(3, queue.dequeue());
+        assertEquals(1, queue.size());
     }
 }
