@@ -21,17 +21,21 @@ public class QueueImplTest {
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
+        System.out.println(queue.toArrayList());
 
         assertEquals(1, queue.peek());
         assertEquals(1, queue.dequeue());
         assertEquals(2, queue.size());
+        System.out.println(queue.toArrayList());
 
         assertEquals(2, queue.peek());
         assertEquals(2, queue.dequeue());
         assertEquals(1, queue.size());
+        System.out.println(queue.toArrayList());
 
         assertEquals(3, queue.peek());
         assertEquals(3, queue.dequeue());
         assertEquals(1, queue.size());
+        System.out.println(queue.toArrayList());
     }
 }
