@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QueueWithoutFirstNode<T> {
-    private static class Node<T>{
+    private static class Node<T> {
         private T value;
         private Node<T> nextNode;
 
-        public Node(final Node<T> nextNode, final T value){
+        public Node(final Node<T> nextNode, final T value) {
             this.nextNode = nextNode;
             this.value = value;
         }
@@ -17,7 +17,7 @@ public class QueueWithoutFirstNode<T> {
     private Node<T> head = null;
     private Node<T> tail = null;
 
-    public void enqueue(final T value){
+    public void enqueue(final T value) {
         if ( tail == null ) {
             tail = new Node<>(null, value);
             head = tail;
@@ -27,8 +27,8 @@ public class QueueWithoutFirstNode<T> {
         }
     }
 
-    public T dequeue(){
-        if ( head == null ){
+    public T dequeue() {
+        if ( head == null ) {
             return null;
         } else {
             final T value = head.value; // get value
@@ -41,13 +41,13 @@ public class QueueWithoutFirstNode<T> {
         }
     }
 
-    public T peek(){
+    public T peek() {
         return head.value;
     }
 
     public int size() {
         int size = 0;
-        for (Node<T> ptr = head; ptr != null; ptr = ptr.nextNode) {
+        for ( Node<T> ptr = head; ptr != null; ptr = ptr.nextNode ) {
             size++;
         }
 
@@ -57,7 +57,7 @@ public class QueueWithoutFirstNode<T> {
     public List<T> toArrayList(){
         final List<T> list = new ArrayList<>();
 
-        for (Node<T> ptr = head; ptr != null; ptr = ptr.nextNode) {
+        for ( Node<T> ptr = head; ptr != null; ptr = ptr.nextNode ) {
             list.add(ptr.value);
         }
 
