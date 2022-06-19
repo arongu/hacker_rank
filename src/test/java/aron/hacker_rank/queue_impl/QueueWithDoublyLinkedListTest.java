@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class QueueImplTest {
+public class QueueWithDoublyLinkedListTest {
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
-        final QueueWithPointers<Integer> queue = new QueueWithPointers<>();
+        final QueueWithDoublyLinkedList<Integer> queue = new QueueWithDoublyLinkedList<>();
         assertEquals(0, queue.size());
         queue.enqueue(1);
         assertEquals(1, queue.size());
@@ -21,7 +21,7 @@ public class QueueImplTest {
 
     @Test
     public void comprehensiveTest() {
-        final QueueWithPointers<Integer> queue = new QueueWithPointers<>();
+        final QueueWithDoublyLinkedList<Integer> queue = new QueueWithDoublyLinkedList<>();
         assertEquals(0, queue.size());
 
         queue.enqueue(1);
@@ -44,5 +44,20 @@ public class QueueImplTest {
         assertEquals(3, queue.dequeue());
         assertEquals(0, queue.size());
         System.out.println(queue.toArrayList());
+    }
+
+    @Test
+    public void loopy() {
+        final QueueWithDoublyLinkedList<Integer> queue = new QueueWithDoublyLinkedList<>();
+        for ( int i = 0; i < 10; i++ ) {
+            queue.enqueue(i);
+        }
+
+        System.out.println(queue.toArrayList());
+
+        while (queue.size() != 0) {
+            queue.dequeue();
+            System.out.println(queue.toArrayList());
+        }
     }
 }

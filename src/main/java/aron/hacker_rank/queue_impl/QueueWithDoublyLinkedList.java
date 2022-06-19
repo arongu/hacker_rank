@@ -3,7 +3,7 @@ package aron.hacker_rank.queue_impl;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QueueWithPointers<T> {
+public class QueueWithDoublyLinkedList<T> {
     private static class Node<T> {
         private Node<T> previous;
         private Node<T> next;
@@ -19,8 +19,8 @@ public class QueueWithPointers<T> {
 
     private Node<T> head, tail;
 
-    public QueueWithPointers(){
-        head = new QueueWithPointers.Node<>(null, null, null); // create a root node
+    public QueueWithDoublyLinkedList(){
+        head = new QueueWithDoublyLinkedList.Node<>(null, null, null); // create a root node
         tail = head; // tail and head both points to the root node
     }
 
