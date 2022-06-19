@@ -31,13 +31,13 @@ public class QueueWithoutFirstNode<T> {
         if ( head == null ) {
             return null;
         } else {
-            final T value = head.value; // get value
-            final Node<T> nextToHead = head.nextNode; // the next element will be the head
+            final T dequeueValue   = head.value;    // get value, before deleting the old head
+            final Node<T> nextNode = head.nextNode; // the next element will be the new head
 
-            head.nextNode = null; // detach head from the nood tree
-            head = nextToHead;    // make the next element the new head
+            head.nextNode = null; // detach head from the node tree, thus deleting it - gc will take care of it
+            head = nextNode;      // make the next element the new head
 
-            return value;
+            return dequeueValue;  // return the value 
         }
     }
 
