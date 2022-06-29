@@ -1,9 +1,9 @@
-package aron.hacker_rank.queue_impl.list;
+package aron.hacker_rank.queue;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QueueWithoutFirstNode<T> {
+public class QueueWithLinkedList<T> {
     private static class Node<T> {
         private T value;
         private Node<T> nextNode;

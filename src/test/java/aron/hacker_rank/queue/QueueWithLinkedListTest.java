@@ -1,13 +1,13 @@
-package aron.hacker_rank.queue_impl.list;
+package aron.hacker_rank.queue;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class QueueWithSinglyLinkedList3Test {
+public class QueueWithLinkedListTest {
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
-        final QueueWithSinglyLinkedList3<Integer> queue = new QueueWithSinglyLinkedList3<>();
+        final QueueWithLinkedList<Integer> queue = new QueueWithLinkedList<>();
         assertEquals(0, queue.size());
         queue.enqueue(1);
         assertEquals(1, queue.size());
@@ -21,34 +21,37 @@ public class QueueWithSinglyLinkedList3Test {
 
     @Test
     public void comprehensiveTest() {
-        final QueueWithSinglyLinkedList3<Integer> queue = new QueueWithSinglyLinkedList3<>();
+        final QueueWithLinkedList<Integer> queue = new QueueWithLinkedList<>();
         assertEquals(0, queue.size());
 
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
-        assertEquals(3, queue.size());
-        System.out.println(queue.toArrayList());
+        queue.dequeue();
+        queue.enqueue(4);
 
-        assertEquals(1, queue.peek());
-        assertEquals(1, queue.dequeue());
-        assertEquals(2, queue.size());
+        assertEquals(3, queue.size());
         System.out.println(queue.toArrayList());
 
         assertEquals(2, queue.peek());
         assertEquals(2, queue.dequeue());
-        assertEquals(1, queue.size());
+        assertEquals(2, queue.size());
         System.out.println(queue.toArrayList());
 
         assertEquals(3, queue.peek());
         assertEquals(3, queue.dequeue());
+        assertEquals(1, queue.size());
+        System.out.println(queue.toArrayList());
+
+        assertEquals(4, queue.peek());
+        assertEquals(4, queue.dequeue());
         assertEquals(0, queue.size());
         System.out.println(queue.toArrayList());
     }
 
     @Test
     public void loopy() {
-        final QueueWithSinglyLinkedList3<Integer> queue = new QueueWithSinglyLinkedList3<>();
+        final QueueWithLinkedList<Integer> queue = new QueueWithLinkedList<>();
         for ( int i = 0; i < 10; i++ ) {
             queue.enqueue(i);
         }
