@@ -21,6 +21,7 @@ public class QueueWithLinkedList<T> {
         if ( tail == null ) {
             tail = new Node<>(null, value);
             head = tail;
+
         } else {
             tail.nextNode = new Node<>(null, value);
             tail = tail.nextNode;
@@ -29,15 +30,14 @@ public class QueueWithLinkedList<T> {
 
     public T dequeue() {
         if ( head == null ) {
+            tail = null;
             return null;
+
         } else {
-            final T dequeueValue   = head.value;    // get value, before deleting the old head
-            final Node<T> nextNode = head.nextNode; // the next element will be the new head
+            final T value = head.value;    // get value, before deleting the old head
+            head = head.nextNode;          // the next element will be the new head
 
-            head.nextNode = null; // detach head from the node tree, thus deleting it - gc will take care of it
-            head = nextNode;      // make the next element the new head
-
-            return dequeueValue;  // return the value 
+            return value;  // return the value
         }
     }
 
