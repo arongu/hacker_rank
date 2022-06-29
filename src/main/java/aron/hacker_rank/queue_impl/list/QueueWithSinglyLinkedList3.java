@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class QueueWithSinglyLinkedList3<T> {
     private static class Node<T> {
         private Node<T> nextNode;
-        private T value;
+        private final T value;
 
         public Node(final T value, final Node<T> nextNode) {
             this.value    = value;
@@ -21,6 +21,7 @@ public class QueueWithSinglyLinkedList3<T> {
         if ( tail == null ) {
             tail = new Node<>(value, null);
             head = tail;
+
         } else {
             tail.nextNode = new Node<T>(value, null);
             tail = tail.nextNode;
@@ -36,6 +37,7 @@ public class QueueWithSinglyLinkedList3<T> {
     public T dequeue() {
         if ( head == null ) {
             return null;
+
         } else {
             final T valueToBeDequeued = head.value;
             final Node<T> nextToHead  = head.nextNode;
@@ -50,16 +52,18 @@ public class QueueWithSinglyLinkedList3<T> {
     // size
     public int size() {
         int size = 0;
+
         for ( Node<T> ptr = head; ptr != null; ptr = ptr.nextNode ) {
             size++;
         }
 
-        return  size;
+        return size;
     }
 
     // toArrayList
     public ArrayList<T> toArrayList() {
         final ArrayList<T> arrayList = new ArrayList<>();
+
         for ( Node<T> ptr = head; ptr != null; ptr = ptr.nextNode ) {
             arrayList.add(ptr.value);
         }
