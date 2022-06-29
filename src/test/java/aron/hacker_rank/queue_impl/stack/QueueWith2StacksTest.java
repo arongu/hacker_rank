@@ -1,13 +1,14 @@
-package aron.hacker_rank.queue_impl;
+package aron.hacker_rank.queue_impl.stack;
 
+import aron.hacker_rank.queue_impl.stack.QueueWith2Stacks;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class QueueWith2StacksImprovedTest {
+public class QueueWith2StacksTest {
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
-        final QueueWith2StacksImproved<Integer> queue = new QueueWith2StacksImproved<>();
+        final QueueWith2Stacks<Integer> queue = new QueueWith2Stacks<>();
         assertEquals(0, queue.size());
         queue.enqueue(1);
         assertEquals(1, queue.size());
@@ -21,7 +22,7 @@ public class QueueWith2StacksImprovedTest {
 
     @Test
     public void comprehensiveTest() {
-        final QueueWith2StacksImproved<Integer> queue = new QueueWith2StacksImproved<>();
+        final QueueWith2Stacks<Integer> queue = new QueueWith2Stacks<>();
         assertEquals(0, queue.size());
 
         queue.enqueue(1);
@@ -44,7 +45,7 @@ public class QueueWith2StacksImprovedTest {
 
     @Test
     public void loopy() {
-        final QueueWith2StacksImproved<Integer> queue = new QueueWith2StacksImproved<>();
+        final QueueWith2Stacks<Integer> queue = new QueueWith2Stacks<>();
         for ( int i = 0; i < 10; i++ ) {
             queue.enqueue(i);
         }

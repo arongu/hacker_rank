@@ -1,14 +1,18 @@
-package aron.hacker_rank.queue_impl;
+package aron.hacker_rank.queue_impl.stack;
 
+import aron.hacker_rank.queue_impl.stack.QueueWith2Stacks3;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class QueueWithSinglyLinkedListTest2 {
+public class QueueWith2Stacks3Test {
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
-        final QueueWithSinglyLinkedList2<Integer> queue = new QueueWithSinglyLinkedList2<>();
+        final QueueWith2Stacks3<Integer> queue = new QueueWith2Stacks3<>();
         assertEquals(0, queue.size());
+        assertNull(queue.peek());
+        assertNull(queue.dequeue());
         queue.enqueue(1);
         assertEquals(1, queue.size());
         queue.enqueue(2);
@@ -21,43 +25,37 @@ public class QueueWithSinglyLinkedListTest2 {
 
     @Test
     public void comprehensiveTest() {
-        final QueueWithSinglyLinkedList2<Integer> queue = new QueueWithSinglyLinkedList2<>();
+        final QueueWith2Stacks3<Integer> queue = new QueueWith2Stacks3<>();
         assertEquals(0, queue.size());
 
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
+        queue.dequeue();
+        queue.enqueue(4);
+
         assertEquals(3, queue.size());
-        System.out.println(queue.toArrayList());
-
-        assertEquals(1, queue.peek());
-        assertEquals(1, queue.dequeue());
-        assertEquals(2, queue.size());
-        System.out.println(queue.toArrayList());
-
         assertEquals(2, queue.peek());
         assertEquals(2, queue.dequeue());
-        assertEquals(1, queue.size());
-        System.out.println(queue.toArrayList());
-
+        assertEquals(2, queue.size());
         assertEquals(3, queue.peek());
         assertEquals(3, queue.dequeue());
+        assertEquals(1, queue.size());
+        assertEquals(4, queue.peek());
+        assertEquals(4, queue.dequeue());
         assertEquals(0, queue.size());
-        System.out.println(queue.toArrayList());
     }
 
     @Test
     public void loopy() {
-        final QueueWithSinglyLinkedList2<Integer> queue = new QueueWithSinglyLinkedList2<>();
+        final QueueWith2Stacks3<Integer> queue = new QueueWith2Stacks3<>();
         for ( int i = 0; i < 10; i++ ) {
             queue.enqueue(i);
         }
 
-        System.out.println(queue.toArrayList());
-
         while (queue.size() != 0) {
-            queue.dequeue();
-            System.out.println(queue.toArrayList());
+            int n = queue.dequeue();
+            System.out.println(n);
         }
     }
 }

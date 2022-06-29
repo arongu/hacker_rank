@@ -1,5 +1,6 @@
-package aron.hacker_rank.queue_impl;
+package aron.hacker_rank.queue_impl.list;
 
+import aron.hacker_rank.queue_impl.list.QueueWithSinglyLinkedList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

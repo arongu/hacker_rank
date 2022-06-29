@@ -1,4 +1,4 @@
-package aron.hacker_rank.queue_impl;
+package aron.hacker_rank.queue_impl.stack;
 
 import java.util.Stack;
 

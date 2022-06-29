@@ -1,13 +1,14 @@
-package aron.hacker_rank.queue_impl;
+package aron.hacker_rank.queue_impl.list;
 
+import aron.hacker_rank.queue_impl.list.QueueWithDoublyLinkedList;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class QueueWith2StacksTest {
+public class QueueWithDoublyLinkedListTest {
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
-        final QueueWith2Stacks<Integer> queue = new QueueWith2Stacks<>();
+        final QueueWithDoublyLinkedList<Integer> queue = new QueueWithDoublyLinkedList<>();
         assertEquals(0, queue.size());
         queue.enqueue(1);
         assertEquals(1, queue.size());
@@ -21,7 +22,7 @@ public class QueueWith2StacksTest {
 
     @Test
     public void comprehensiveTest() {
-        final QueueWith2Stacks<Integer> queue = new QueueWith2Stacks<>();
+        final QueueWithDoublyLinkedList<Integer> queue = new QueueWithDoublyLinkedList<>();
         assertEquals(0, queue.size());
 
         queue.enqueue(1);
@@ -31,27 +32,36 @@ public class QueueWith2StacksTest {
         queue.enqueue(4);
 
         assertEquals(3, queue.size());
+        System.out.println(queue.toArrayList());
+
         assertEquals(2, queue.peek());
         assertEquals(2, queue.dequeue());
         assertEquals(2, queue.size());
+        System.out.println(queue.toArrayList());
+
         assertEquals(3, queue.peek());
         assertEquals(3, queue.dequeue());
         assertEquals(1, queue.size());
+        System.out.println(queue.toArrayList());
+
         assertEquals(4, queue.peek());
         assertEquals(4, queue.dequeue());
         assertEquals(0, queue.size());
+        System.out.println(queue.toArrayList());
     }
 
     @Test
     public void loopy() {
-        final QueueWith2Stacks<Integer> queue = new QueueWith2Stacks<>();
+        final QueueWithDoublyLinkedList<Integer> queue = new QueueWithDoublyLinkedList<>();
         for ( int i = 0; i < 10; i++ ) {
             queue.enqueue(i);
         }
 
+        System.out.println(queue.toArrayList());
+
         while (queue.size() != 0) {
-            int n = queue.dequeue();
-            System.out.println(n);
+            queue.dequeue();
+            System.out.println(queue.toArrayList());
         }
     }
 }
