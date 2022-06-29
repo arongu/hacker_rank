@@ -5,7 +5,7 @@ import java.util.List;
 
 public class QueueWithLinkedList<T> {
     private static class Node<T> {
-        private T value;
+        private final T value;
         private Node<T> nextNode;
 
         public Node(final Node<T> nextNode, final T value) {
