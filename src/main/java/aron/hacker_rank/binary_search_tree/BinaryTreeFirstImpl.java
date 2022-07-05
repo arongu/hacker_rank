@@ -21,6 +21,7 @@ public class BinaryTreeFirstImpl {
 
     public void add(int number) {
         System.out.println("adding " + number);
+
         if ( rootNode == null ) {
             rootNode = new Node(number);
             System.out.println("root " + rootNode.value);
