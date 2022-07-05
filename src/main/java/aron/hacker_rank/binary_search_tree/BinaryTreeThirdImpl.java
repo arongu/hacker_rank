@@ -1,6 +1,7 @@
 package aron.hacker_rank.binary_search_tree;
 
 public class BinaryTreeThirdImpl {
+
     private static class Node {
         private Node leftNode, rightNode;
         private int value;
