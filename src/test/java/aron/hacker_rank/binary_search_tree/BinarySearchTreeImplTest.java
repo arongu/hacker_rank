@@ -1,6 +1,5 @@
 package aron.hacker_rank.binary_search_tree;
 
-import aron.hacker_rank.floyd.Node;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
@@ -48,7 +47,7 @@ public class BinarySearchTreeImplTest {
         final BinaryTreeFirstImpl tree = new BinaryTreeFirstImpl();
         final Random random = new Random();
 
-        for (int i = 0; i < 100; i++ ) {
+        for (int i = 0; i < 1000; i++ ) {
             tree.add(random.nextInt(10000));
         }
     }
