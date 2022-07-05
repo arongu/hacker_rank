@@ -23,19 +23,17 @@ public class BinaryTreeThirdImpl {
     private Node findOrGiveBackParentNode(final Node rootNode, final int number) {
         Node parentNode = null;
 
-        if ( rootNode != null ) {
-            for ( Node node = rootNode; node != null; ) {
-                if ( number < node.value ) {
-                    parentNode = node;
-                    node       = node.leftNode;
+        for ( Node node = rootNode; node != null; ) {
+            if ( number < node.value ) {
+                parentNode = node;
+                node       = node.leftNode;
 
-                } else if ( number > node.value ) {
-                    parentNode = node;
-                    node       = node.rightNode;
+            } else if ( number > node.value ) {
+                parentNode = node;
+                node       = node.rightNode;
 
-                } else { // value == number
-                    return node;
-                }
+            } else { // value == number
+                return node;
             }
         }
 
