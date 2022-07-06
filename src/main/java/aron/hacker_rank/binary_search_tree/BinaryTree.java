@@ -49,15 +49,13 @@ public class BinaryTree {
         }
 
         final Node leafNode = findNearest(number);
-        if ( leafNode != null ) {
-            if ( number > leafNode.value ) {
-                leafNode.rightNode = new Node(number);
+        if ( number > leafNode.value ) {
+            leafNode.rightNode = new Node(number);
 
-            } else if ( number < leafNode.value) {
-                leafNode.leftNode = new Node(number);
-            }
-            // value == number do nothing - explicit empty else could go here
+        } else if ( number < leafNode.value) {
+            leafNode.leftNode = new Node(number);
         }
+        // value == number do nothing - explicit empty else could go here
     }
 
     public boolean contains(int number) {
