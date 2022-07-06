@@ -21,7 +21,7 @@ public class BinaryTree {
     private Node rootNode = null;
 
     // when a node has no child nodes it is called a leaf node
-    private Node findOrGiveBackParentNode(final Node rootNode, final int number) {
+    private Node findNearest(final int number) {
         Node parentNode = null;
 
         for ( Node node = rootNode; node != null; ) {
@@ -48,7 +48,7 @@ public class BinaryTree {
             return;
         }
 
-        final Node leafNode = findOrGiveBackParentNode(rootNode, number);
+        final Node leafNode = findNearest(number);
         if ( leafNode != null ) {
             if ( number > leafNode.value ) {
                 leafNode.rightNode = new Node(number);
@@ -61,7 +61,7 @@ public class BinaryTree {
     }
 
     public boolean contains(int number) {
-        final Node node = findOrGiveBackParentNode(rootNode, number);
+        final Node node = findNearest(number);
         return node != null && node.value == number;
     }
 }
