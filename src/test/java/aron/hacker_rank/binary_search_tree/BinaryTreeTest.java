@@ -8,10 +8,10 @@ import java.util.Stack;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BinaryTreeSecondImpllTest {
+public class BinaryTreeTest {
     @Test
     public void comprehensiveTest () {
-        final BinaryTreeSecondImpl binaryTree = new BinaryTreeSecondImpl();
+        final BinaryTree binaryTree = new BinaryTree();
 
         assertFalse(binaryTree.contains(100));
         System.out.println();
@@ -45,7 +45,7 @@ public class BinaryTreeSecondImpllTest {
 
     @Test
     public void randomAddTest() {
-        final BinaryTreeSecondImpl tree = new BinaryTreeSecondImpl();
+        final BinaryTree tree = new BinaryTree();
         final Random random        = new Random();
         final Stack<Integer> stack = new Stack<>();
 
@@ -55,7 +55,6 @@ public class BinaryTreeSecondImpllTest {
             stack.push(n);
         }
 
-        System.out.println("\n--------------------");
         while ( !stack.isEmpty() ) {
             assertTrue(tree.contains(stack.pop()));
         }

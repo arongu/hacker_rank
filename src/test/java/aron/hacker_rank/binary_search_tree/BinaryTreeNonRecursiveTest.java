@@ -3,14 +3,15 @@ package aron.hacker_rank.binary_search_tree;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
+import java.util.Stack;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BinaryTreeFirstImplTest {
+public class BinaryTreeNonRecursiveTest {
     @Test
     public void comprehensiveTest () {
-        final BinaryTreeFirstImpl binaryTree = new BinaryTreeFirstImpl();
+        final BinaryTreeNonRecursive binaryTree = new BinaryTreeNonRecursive();
 
         assertFalse(binaryTree.contains(100));
         System.out.println();
@@ -44,11 +45,19 @@ public class BinaryTreeFirstImplTest {
 
     @Test
     public void randomAddTest() {
-        final BinaryTreeFirstImpl tree = new BinaryTreeFirstImpl();
-        final Random random = new Random();
+        final BinaryTreeNonRecursive tree = new BinaryTreeNonRecursive();
+        final Random random        = new Random();
+        final Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < 20; i++ ) {
-            tree.add(random.nextInt(10000));
+            int n = random.nextInt(10000);
+            tree.add(n);
+            stack.push(n);
+        }
+
+        System.out.println("\n--------------------");
+        while ( !stack.isEmpty() ) {
+            assertTrue(tree.contains(stack.pop()));
         }
     }
 }
