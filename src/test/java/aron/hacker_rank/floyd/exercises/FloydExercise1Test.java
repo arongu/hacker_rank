@@ -1,5 +1,7 @@
-package aron.hacker_rank.floyd;
+package aron.hacker_rank.floyd.exercises;
 
+import aron.hacker_rank.floyd.Node;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -19,7 +21,7 @@ public class FloydExercise1Test {
             }
         }
 
-        assertFalse(FloydExercise1.hasLoop(head));
+        Assertions.assertFalse(FloydExercise1.hasLoop(head));
     }
 
     @Test

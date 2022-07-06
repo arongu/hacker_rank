@@ -1,6 +1,8 @@
-package aron.hacker_rank.floyd;
+package aron.hacker_rank.floyd.exercises;
 
-public class FloydExercise1 {
+import aron.hacker_rank.floyd.Node;
+
+public class FloydExercise2<T> {
     private static <T> Node<T> moveOne(final Node<T> node) {
         return node != null ? node.getNextNode() : null;
     }
@@ -15,9 +17,8 @@ public class FloydExercise1 {
         Node<T> slow = moveOne(head);
         Node<T> fast = moveTwo(head);
 
-        while ( slow != null && fast != null ) {
+        while (slow != null && fast != null ) {
             if ( slow == fast ) return true;
-
             slow = moveOne(slow);
             fast = moveTwo(fast);
         }
