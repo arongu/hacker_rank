@@ -8,10 +8,10 @@ import java.util.Stack;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BinaryTreeNonRecursiveTest {
+public class BinaryTreeChattyTest {
     @Test
     public void comprehensiveTest () {
-        final BinaryTreeNonRecursive binaryTree = new BinaryTreeNonRecursive();
+        final BinaryTreeChatty binaryTree = new BinaryTreeChatty();
 
         assertFalse(binaryTree.contains(100));
         System.out.println();
@@ -45,7 +45,7 @@ public class BinaryTreeNonRecursiveTest {
 
     @Test
     public void randomAddTest() {
-        final BinaryTreeNonRecursive tree = new BinaryTreeNonRecursive();
+        final BinaryTreeChatty tree = new BinaryTreeChatty();
         final Random random        = new Random();
         final Stack<Integer> stack = new Stack<>();
 

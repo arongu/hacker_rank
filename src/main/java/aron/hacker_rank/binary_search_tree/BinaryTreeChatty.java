@@ -1,6 +1,6 @@
 package aron.hacker_rank.binary_search_tree;
 
-public class BinaryTreeNonRecursive {
+public class BinaryTreeChatty {
     private static class Node {
         private Node leftNode, rightNode;
         private int value;
