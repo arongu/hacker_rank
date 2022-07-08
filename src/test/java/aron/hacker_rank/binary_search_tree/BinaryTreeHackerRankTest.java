@@ -14,31 +14,15 @@ public class BinaryTreeHackerRankTest {
         final BinaryTreeHackerRank binaryTree = new BinaryTreeHackerRank();
 
         assertFalse(binaryTree.contains(100));
-        System.out.println();
 
         binaryTree.insert(100);
-        System.out.println();
-
         binaryTree.insert(80);
-        System.out.println();
-
         binaryTree.insert(92);
-        System.out.println();
-
         binaryTree.insert(92);
-        System.out.println();
-
         binaryTree.insert(90);
-        System.out.println();
-
         binaryTree.insert(105);
-        System.out.println();
-
         binaryTree.insert(101);
-        System.out.println();
-
         binaryTree.insert(99);
-        System.out.println();
 
         assertTrue(binaryTree.contains(90));
     }

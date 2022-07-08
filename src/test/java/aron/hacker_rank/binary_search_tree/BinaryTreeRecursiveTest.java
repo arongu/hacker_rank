@@ -14,32 +14,14 @@ public class BinaryTreeRecursiveTest {
         final BinaryTreeRecursive tree = new BinaryTreeRecursive();
 
         assertFalse(tree.contains(100));
-        System.out.println();
-
         tree.add(100);
-        System.out.println();
-
         tree.add(80);
-        System.out.println();
-
         tree.add(92);
-        System.out.println();
-
         tree.add(92);
-        System.out.println();
-
         tree.add(90);
-        System.out.println();
-
         tree.add(105);
-        System.out.println();
-
         tree.add(101);
-        System.out.println();
-
         tree.add(99);
-        System.out.println();
-
         assertTrue(tree.contains(90));
     }
 

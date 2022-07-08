@@ -12,34 +12,15 @@ public class BinaryTree1Test {
     @Test
     public void comprehensiveTest () {
         final BinaryTree1 binaryTree = new BinaryTree1();
-
         assertFalse(binaryTree.contains(100));
-        System.out.println();
-
         binaryTree.add(100);
-        System.out.println();
-
         binaryTree.add(80);
-        System.out.println();
-
         binaryTree.add(92);
-        System.out.println();
-
         binaryTree.add(92);
-        System.out.println();
-
         binaryTree.add(90);
-        System.out.println();
-
         binaryTree.add(105);
-        System.out.println();
-
         binaryTree.add(101);
-        System.out.println();
-
         binaryTree.add(99);
-        System.out.println();
-
         assertTrue(binaryTree.contains(90));
     }
 

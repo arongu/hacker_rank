@@ -14,32 +14,14 @@ public class BinaryTreeTest {
         final BinaryTree binaryTree = new BinaryTree();
 
         assertFalse(binaryTree.contains(100));
-        System.out.println();
-
         binaryTree.add(100);
-        System.out.println();
-
         binaryTree.add(80);
-        System.out.println();
-
         binaryTree.add(92);
-        System.out.println();
-
         binaryTree.add(92);
-        System.out.println();
-
         binaryTree.add(90);
-        System.out.println();
-
         binaryTree.add(105);
-        System.out.println();
-
         binaryTree.add(101);
-        System.out.println();
-
         binaryTree.add(99);
-        System.out.println();
-
         assertTrue(binaryTree.contains(90));
     }
 
