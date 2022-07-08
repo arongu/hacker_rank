@@ -62,8 +62,7 @@ public class BinaryTreeHackerRank {
         }
     }
 
-
-    // method overloading and scope (public)
+    // public methods (overloading and scope)
     public boolean contains(final int number) {
         return contains(rootNode, number);
     }

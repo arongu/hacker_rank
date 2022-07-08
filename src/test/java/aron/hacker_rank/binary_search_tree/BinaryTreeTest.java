@@ -45,7 +45,7 @@ public class BinaryTreeTest {
 
     @Test
     public void randomAddTest() {
-        final BinaryTree tree = new BinaryTree();
+        final BinaryTree tree      = new BinaryTree();
         final Random random        = new Random();
         final Stack<Integer> stack = new Stack<>();
 
@@ -58,5 +58,7 @@ public class BinaryTreeTest {
         while ( !stack.isEmpty() ) {
             assertTrue(tree.contains(stack.pop()));
         }
+
+        tree.printInOrder();
     }
 }

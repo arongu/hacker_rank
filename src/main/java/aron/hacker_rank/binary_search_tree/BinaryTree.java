@@ -42,6 +42,20 @@ public class BinaryTree {
                            // once the iterator (node) reaches the edege it becomes null, can only work with its parent
     }
 
+    private void printInOrder(final Node node) {
+        if ( node == null ) return;
+
+        if ( node.leftNode != null ) {
+            printInOrder(node.leftNode);
+        }
+
+        System.out.println(node.value);
+
+        if ( node.rightNode != null ) {
+            printInOrder(node.rightNode);
+        }
+    }
+
     public void add(int number) {
         if ( rootNode == null ) {
             rootNode = new Node(number);
@@ -61,5 +75,9 @@ public class BinaryTree {
     public boolean contains(int number) {
         final Node node = findNearest(number);
         return node != null && node.value == number;
+    }
+
+    public void printInOrder() {
+        printInOrder(rootNode);
     }
 }
