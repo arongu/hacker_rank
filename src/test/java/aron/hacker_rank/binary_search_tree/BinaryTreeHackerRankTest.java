@@ -44,5 +44,6 @@ public class BinaryTreeHackerRankTest {
         }
 
         tree.printInOrder();
+        assertTrue(tree.checkBST());
     }
 }

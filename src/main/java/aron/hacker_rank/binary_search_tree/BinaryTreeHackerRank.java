@@ -71,6 +71,24 @@ public class BinaryTreeHackerRank {
         insert(rootNode, number);
     }
 
+    // check BST
+    private boolean checkBST(final BinaryNode node, int min, int max) {
+        if ( node == null ) {
+            return true;
+        }
+
+        if ( node.number < min || node.number > max ) {
+            return false;
+        }
+
+        return checkBST(node.left, min, node.number - 1) && checkBST(node.right, node.number +1, max);
+    }
+
+    public boolean checkBST() {
+        return checkBST(rootNode, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    // print
     public void printInOrder() {
         printInOrder(rootNode);
     }
