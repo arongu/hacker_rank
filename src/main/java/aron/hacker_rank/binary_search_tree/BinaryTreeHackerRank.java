@@ -2,12 +2,24 @@ package aron.hacker_rank.binary_search_tree;
 
 public class BinaryTreeHackerRank {
 
-    private static class BinaryNode {
+    public static class BinaryNode {
         private BinaryNode left = null, right = null;
         private final int number;
 
         public BinaryNode(final int number) {
             this.number = number;
+        }
+
+        public BinaryNode getLeft() {
+            return left;
+        }
+
+        public BinaryNode getRight() {
+            return right;
+        }
+
+        public int getNumber() {
+            return number;
         }
     }
 
