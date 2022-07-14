@@ -1,7 +1,5 @@
 package aron.hacker_rank.binary_search_tree;
 
-import java.util.SortedMap;
-
 public class BST {
     public static class Node {
         public int number;
