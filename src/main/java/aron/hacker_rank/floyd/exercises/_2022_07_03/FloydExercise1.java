@@ -1,4 +1,4 @@
-package aron.hacker_rank.floyd.exercises;
+package aron.hacker_rank.floyd.exercises._2022_07_03;
 
 import aron.hacker_rank.floyd.Node;
 

@@ -1,4 +1,4 @@
-package aron.hacker_rank.floyd.exercises;
+package aron.hacker_rank.floyd.exercises._2022_07_03;
 
 import aron.hacker_rank.floyd.Node;
 import org.junit.jupiter.api.Assertions;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class FloydExercise2Test {
+public class FloydExercise1Test {
     @Test
     public void noLoop() {
         Node<Integer> head = null, ptr = null;
@@ -21,7 +21,7 @@ public class FloydExercise2Test {
             }
         }
 
-        Assertions.assertFalse(FloydExercise2.hasLoop(head));
+        Assertions.assertFalse(FloydExercise1.hasLoop(head));
     }
 
     @Test
@@ -40,8 +40,8 @@ public class FloydExercise2Test {
             }
         }
 
-        assertFalse(FloydExercise2.hasLoop(head));
+        assertFalse(FloydExercise1.hasLoop(head));
         ptr.setNextNode(loopEntry);
-        assertTrue(FloydExercise2.hasLoop(head));
+        assertTrue(FloydExercise1.hasLoop(head));
     }
 }

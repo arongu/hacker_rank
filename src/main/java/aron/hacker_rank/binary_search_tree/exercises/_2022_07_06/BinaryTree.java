@@ -1,6 +1,6 @@
-package aron.hacker_rank.binary_search_tree.exercises;
+package aron.hacker_rank.binary_search_tree.exercises._2022_07_06;
 
-public class BinaryTree1 {
+public class BinaryTree {
 
     private static class Node {
         int value;

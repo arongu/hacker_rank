@@ -1,4 +1,4 @@
-package aron.hacker_rank.queue.execises;
+package aron.hacker_rank.queue.execises._2022_06_30;
 
 import java.util.ArrayList;
 

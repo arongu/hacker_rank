@@ -1,14 +1,14 @@
-package aron.hacker_rank.queue.exercises;
+package aron.hacker_rank.queue.exercises._2022_07_06;
 
-import aron.hacker_rank.queue.execises.QueueList2;
+import aron.hacker_rank.queue.execises._2022_07_06.QueueList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class QueueList2Test {
+public class QueueListTest {
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
-        final QueueList2<Integer> queue = new QueueList2<>();
+        final QueueList<Integer> queue = new QueueList<>();
         assertEquals(0, queue.size());
         queue.enqueue(1);
         assertEquals(1, queue.size());
@@ -22,7 +22,7 @@ public class QueueList2Test {
 
     @Test
     public void comprehensiveTest() {
-        final QueueList2<Integer> queue = new QueueList2<>();
+        final QueueList<Integer> queue = new QueueList<>();
         assertEquals(0, queue.size());
 
         queue.enqueue(1);
@@ -52,7 +52,7 @@ public class QueueList2Test {
 
     @Test
     public void loopy() {
-        final QueueList2<Integer> queue = new QueueList2<>();
+        final QueueList<Integer> queue = new QueueList<>();
         for ( int i = 0; i < 10; i++ ) {
             queue.enqueue(i);
         }

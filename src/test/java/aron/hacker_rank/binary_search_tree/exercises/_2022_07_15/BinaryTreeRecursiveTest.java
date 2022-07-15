@@ -1,4 +1,4 @@
-package aron.hacker_rank.binary_search_tree.exercises;
+package aron.hacker_rank.binary_search_tree.exercises._2022_07_15;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,10 +8,10 @@ import java.util.Stack;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BinaryTree1Test {
+public class BinaryTreeRecursiveTest {
     @Test
     public void comprehensiveTest () {
-        final BinaryTree1 binaryTree = new BinaryTree1();
+        final BinaryTreeRecursive binaryTree = new BinaryTreeRecursive();
         assertFalse(binaryTree.contains(100));
         binaryTree.add(100);
         binaryTree.add(80);
@@ -26,7 +26,7 @@ public class BinaryTree1Test {
 
     @Test
     public void randomAddTest() {
-        final BinaryTree1 tree     = new BinaryTree1();
+        final BinaryTreeRecursive tree     = new BinaryTreeRecursive();
         final Random random        = new Random();
         final Stack<Integer> stack = new Stack<>();
 
@@ -39,5 +39,7 @@ public class BinaryTree1Test {
         while ( !stack.isEmpty() ) {
             assertTrue(tree.contains(stack.pop()));
         }
+
+        tree.printInOrder();
     }
 }

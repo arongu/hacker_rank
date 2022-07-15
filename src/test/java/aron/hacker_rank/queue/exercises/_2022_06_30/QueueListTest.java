@@ -1,14 +1,14 @@
-package aron.hacker_rank.queue.exercises;
+package aron.hacker_rank.queue.exercises._2022_06_30;
 
-import aron.hacker_rank.queue.execises.QueueStacks2;
+import aron.hacker_rank.queue.execises._2022_06_30.QueueList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class QueueStacks2Test {
+public class QueueListTest {
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
-        final QueueStacks2<Integer> queue = new QueueStacks2<>();
+        final QueueList<Integer> queue = new QueueList<>();
         assertEquals(0, queue.size());
         queue.enqueue(1);
         assertEquals(1, queue.size());
@@ -22,7 +22,7 @@ public class QueueStacks2Test {
 
     @Test
     public void comprehensiveTest() {
-        final QueueStacks2<Integer> queue = new QueueStacks2<>();
+        final QueueList<Integer> queue = new QueueList<>();
         assertEquals(0, queue.size());
 
         queue.enqueue(1);
@@ -32,16 +32,36 @@ public class QueueStacks2Test {
         queue.enqueue(4);
 
         assertEquals(3, queue.size());
+        System.out.println(queue.toArrayList());
+
         assertEquals(2, queue.peek());
         assertEquals(2, queue.dequeue());
         assertEquals(2, queue.size());
+        System.out.println(queue.toArrayList());
 
         assertEquals(3, queue.peek());
         assertEquals(3, queue.dequeue());
         assertEquals(1, queue.size());
+        System.out.println(queue.toArrayList());
 
         assertEquals(4, queue.peek());
         assertEquals(4, queue.dequeue());
         assertEquals(0, queue.size());
+        System.out.println(queue.toArrayList());
+    }
+
+    @Test
+    public void loopy() {
+        final QueueList<Integer> queue = new QueueList<>();
+        for ( int i = 0; i < 10; i++ ) {
+            queue.enqueue(i);
+        }
+
+        System.out.println(queue.toArrayList());
+
+        while (queue.size() != 0) {
+            queue.dequeue();
+            System.out.println(queue.toArrayList());
+        }
     }
 }

@@ -1,8 +1,8 @@
-package aron.hacker_rank.queue.execises;
+package aron.hacker_rank.queue.execises._2022_07_06;
 
 import java.util.ArrayList;
 
-public class QueueList2<T> {
+public class QueueList<T> {
 
     private static class Node<T> {
         private Node<T> nextNode;

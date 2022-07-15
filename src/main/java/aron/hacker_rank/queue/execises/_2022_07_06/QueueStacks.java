@@ -1,8 +1,8 @@
-package aron.hacker_rank.queue.execises;
+package aron.hacker_rank.queue.execises._2022_07_06;
 
 import java.util.Stack;
 
-public class QueueStacks2<T> {
+public class QueueStacks<T> {
     private final Stack<T> inputStack  = new Stack<>();
     private final Stack<T> outputStack = new Stack<>();
 

@@ -1,6 +1,6 @@
-package aron.hacker_rank.binary_search_tree.exercises;
+package aron.hacker_rank.binary_search_tree.exercises._2022_07_15;
 
-public class BinaryTree2 {
+public class BinaryTreeRecursive {
     private static class BinaryNode {
         private BinaryNode left, right;
         private int n;
