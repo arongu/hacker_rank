@@ -1,4 +1,4 @@
-package aron.hacker_rank.balanced_parentheses.exercises;
+package aron.hacker_rank.balanced_parentheses.exercises._2022_06_30;
 
 import java.util.Stack;
 
