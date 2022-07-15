@@ -2,6 +2,7 @@ package aron.hacker_rank.binary_search_tree;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BSTTest {
@@ -22,7 +23,7 @@ public class BSTTest {
 
         assertTrue(BST.checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
         root.left.right = new BST.Node(60);
-        assertTrue(BST.checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+        assertFalse(BST.checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 
         /*
