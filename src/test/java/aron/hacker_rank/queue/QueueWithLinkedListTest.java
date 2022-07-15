@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class QueueWithLinkedListTest {
+
     @Test
     public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
         final QueueWithLinkedList<Integer> queue = new QueueWithLinkedList<>();
