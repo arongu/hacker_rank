@@ -16,9 +16,9 @@ public class FloydStaticTest {
 
     @Test
     void test() {
-        assertFalse(askFloyd(noloop));
+        assertFalse(hasLoop(noloop));
         print(noloop);
-        assertTrue(askFloyd(looped));
+        assertTrue(hasLoop(looped));
     }
 }
 

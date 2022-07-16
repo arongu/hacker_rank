@@ -19,7 +19,7 @@ public class FloydStatic {
         return advanceOne(advanceOne(node));
     }
 
-    public static boolean askFloyd(final Node node) {
+    public static boolean hasLoop(final Node node) {
         if ( node == null ) return false;
 
         for ( Node tortoise = advanceOne(node), hare = advanceTwo(node); tortoise != null || hare != null; tortoise = advanceOne(tortoise), hare = advanceTwo(hare) ) {
