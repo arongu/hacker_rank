@@ -8,7 +8,7 @@ public class TrieUpdatedMap {
     private static class Node {
         public char c;
         public boolean isWord;
-        public Map<Character, Node> children = null;
+        public Map<Character, Node> links = null;
 
         public Node(final char c) {
             this.c = c;
@@ -32,56 +32,56 @@ public class TrieUpdatedMap {
         // debug
         if ( debug ) System.out.println(lowercase);
 
-        Node it = root;
+        Node node = root;
         for ( int i = 0; i < lowercase.length(); i++ ) {
             char c = lowercase.charAt(i);
             // debug
-            if ( debug ) System.out.println("@ " + it.c);
+            if ( debug ) System.out.println("@ " + node.c);
 
             // 'look up' the character in the current node
             // if it does not have create a node with that character/letter
-            if ( it.children == null ) {
-                it.children = new HashMap<>();
-                final Node n = new Node(c);
-                it.children.put(c, n);
-                it = n;
+            if ( node.links == null ) {
+                node.links = new HashMap<>();
+                final Node newNode = new Node(c);
+                node.links.put(c, newNode);
+                node = newNode;
 
                 // debug
                 if ( debug ) System.out.println("++ " + c);
 
             } else {
-                final Node node = it.children.get(c);
+                final Node result = node.links.get(c);
 
-                if ( node == null ) {
-                    final Node n = new Node(c);
-                    it.children.put(c, n);
-                    it = n;
+                if ( result == null ) {
+                    final Node newNode = new Node(c);
+                    node.links.put(c, newNode);
+                    node = newNode;
                     // debug
                     if ( debug ) System.out.println("++ " + c);
 
                 } else {
-                    it = node;
+                    node = result;
                 }
             }
         }
 
-        it.isWord = true;
+        node.isWord = true;
         if ( debug ) System.out.println();
     }
 
     private Node getNode(final String word) {
-        Node it = root;
         final String lowercase = word.toLowerCase();
 
+        Node node = root;
         for ( int i = 0; i < lowercase.length(); i++ ) {
             char c = lowercase.charAt(i);
 
-            Node node = it.children.get(c);
-            if ( node == null ) return null;
-            it = node;
+            Node result = node.links.get(c);
+            if ( result == null ) return null;
+            node = result;
         }
 
-        return it;
+        return node;
     }
 
     public boolean search(final String word) {

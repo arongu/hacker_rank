@@ -4,21 +4,17 @@ public class TrieUpdated {
     private static class Node {
         public char c;
         public boolean isWord;
-        public Node[] children;
+        public Node[] links;
 
         public Node(final char c) {
-            this.c   = c;
-            isWord   = false;
-            children = new Node[26]; // 26 'sockets' to support english alphabet
-                                     // a - a = 0
-                                     // b - a = 1
-                                     // c - a = 2
-            // """hash""" value, a = 97
-            // it serves as an index to get the element in the children
+            this.c = c;
+            isWord = false;
+            links = new Node[26]; // 26 possible 'links/leafs' to support english alphabet
+                                  // a - a = 0, b - a = 1, c - a = 2, """hash""" value, a = 97 crude """hash function"""
         }
     }
 
-    private final Node root;
+    private final Node rootNode;
     private boolean debug = false;
 
     public void setDebug(boolean debug) {
@@ -26,54 +22,51 @@ public class TrieUpdated {
     }
 
     public TrieUpdated() {
-        root = new Node('/');
+        rootNode = new Node('/');
     }
 
     public void insert(final String word) {
-        Node it = root;
         final String lowercase = word.toLowerCase();
-        // debug
         if ( debug ) System.out.println(lowercase);
 
+        Node node = rootNode;
         for ( int i = 0; i < lowercase.length(); i++ ) {
             char c = lowercase.charAt(i);
-            int characterIndex = c - 'a';
-            // debug
-            if ( debug ) System.out.println("@ " + it.c);
+            int linkIndex = c - 'a';
 
-            // 'look up' the character in the current node
-            // if it does not have create a node with that character/letter
-            if ( it.children[characterIndex] == null ) {
-                it.children[characterIndex] = new Node(c);
-                // debug
-                if ( debug )  System.out.println("++ " + c + "(" + characterIndex + ")");
+            if ( debug ) System.out.println("@ " + node.c);
+
+
+            if ( node.links[linkIndex] == null ) {
+                node.links[linkIndex] = new Node(c);
+
+                if ( debug )  System.out.println("++ " + c + "(" + linkIndex + ")");
             }
 
-            // move the iterator to the index
-            it = it.children[characterIndex];
+            node = node.links[linkIndex];
         }
 
-        it.isWord = true;
+        node.isWord = true;
         if ( debug ) System.out.println();
     }
 
     private Node getNode(final String word) {
-        Node it = root;
+        Node node = rootNode;
         final String lowercase = word.toLowerCase();
 
         for ( int i = 0; i < lowercase.length(); i++ ) {
             char c = lowercase.charAt(i);
-            int characterIndex = c - 'a';
+            int linkIndex = c - 'a';
 
-            if ( it.children[characterIndex] == null ) {
+            if ( node.links[linkIndex] == null ) {
                 return null;
 
             } else {
-                it = it.children[characterIndex];
+                node = node.links[linkIndex];
             }
         }
 
-        return it;
+        return node;
     }
 
     public boolean search(final String word) {

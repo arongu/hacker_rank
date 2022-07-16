@@ -1,3 +1,6 @@
+trie implement delete word
+
+
 balancing a binary tree
 implementing a red-black tree
 
