@@ -20,19 +20,20 @@ public class TrieProto {
     }
 
     public void insert(final String word) {
-        Node current = root;
+        Node it = root;
+
         for ( int i = 0; i < word.length(); i++ ) {
             char c = word.charAt(i);
+            int characterIndex = c - 'a';
 
-            if ( current.children[ c - 'a' ] == null ) {
-                current.children[c - 'a'] = new Node(c);
-
+            if ( it.children[characterIndex] == null ){
+                it.children[characterIndex] = new Node(c);
             } else {
-                current = current.children[ c - 'a'];
+                it = it.children[characterIndex];
             }
         }
 
-        current.isWord = true;
+        it.isWord = true;
     }
 
     private Node getNode(final String word) {
