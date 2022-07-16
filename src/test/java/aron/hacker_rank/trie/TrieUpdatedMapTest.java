@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TrieUpdatedTest {
+public class TrieUpdatedMapTest {
 
     @Test
     public void go() {
-        final TrieUpdated trie = new TrieUpdated();
+        final TrieUpdatedMap trie = new TrieUpdatedMap();
         trie.setDebug(true);
 
         trie.insert("alma");
