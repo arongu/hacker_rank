@@ -10,8 +10,9 @@ public class TrieUpdatedTest {
     @Test
     public void go() {
         final TrieUpdated trie = new TrieUpdated();
-        trie.setDebug(true);
+        //trie.setDebug(true);
 
+        long start = System.nanoTime();
         trie.insert("alma");
         trie.insert("abba");
         trie.insert("abban");
@@ -21,6 +22,23 @@ public class TrieUpdatedTest {
         trie.insert("mar");
         trie.insert("marha");
         trie.insert("marok");
+        trie.insert("martaloc");
+        trie.insert("malac");
+        trie.insert("malacka");
+        trie.insert("kerek");
+        trie.insert("kerepel");
+        trie.insert("kerekpar");
+        trie.insert("kerekparos");
+        trie.insert("tej");
+        trie.insert("tejfol");
+        trie.insert("tejfolos");
+        trie.insert("tejes");
+        trie.insert("tejbegriz");
+        trie.insert("telefon");
+        trie.insert("teljes");
+        long end = System.nanoTime();
+        long duration = end - start;
+        System.out.println("duration: " + duration);
 
         assertTrue(trie.search("alma"));
         assertTrue(trie.startsWith("bal"));

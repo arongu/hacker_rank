@@ -39,25 +39,28 @@ public class TrieUpdatedMap {
 
             // 'look up' the character in the current node
             // if it does not have create a node with that character/letter
-            Node node;
             if ( it.children == null ) {
                 it.children = new HashMap<>();
-                node = new Node(c);
-                it.children.put(c, node);
-                it = node;
+                final Node n = new Node(c);
+                it.children.put(c, n);
+                it = n;
 
-                // debug
-                if ( debug ) System.out.println("++ " + c);
-
-            } else if ( it.children.get(c) == null ) {
-                node = new Node(c);
-                it.children.put(c, node);
-                it = node;
                 // debug
                 if ( debug ) System.out.println("++ " + c);
 
             } else {
-                it = it.children.get(c);
+                final Node node = it.children.get(c);
+
+                if ( node == null ) {
+                    final Node n = new Node(c);
+                    it.children.put(c, n);
+                    it = n;
+                    // debug
+                    if ( debug ) System.out.println("++ " + c);
+
+                } else {
+                    it = node;
+                }
             }
         }
 
