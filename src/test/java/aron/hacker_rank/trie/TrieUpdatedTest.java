@@ -9,8 +9,7 @@ public class TrieUpdatedTest {
 
     @Test
     public void go() {
-        final TrieUpdated trie = new TrieUpdated();
-        //trie.setDebug(true);
+        final TrieUpdated trie = new TrieUpdated(true);
 
         long start = System.nanoTime();
         trie.insert("alma");

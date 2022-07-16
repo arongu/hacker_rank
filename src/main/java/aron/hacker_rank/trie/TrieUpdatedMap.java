@@ -16,15 +16,16 @@ public class TrieUpdatedMap {
         }
     }
 
-    private final Node root;
-    private boolean debug = false;
+    private final Node rootNode;
+    private boolean debug;
 
     public void setDebug(boolean debug) {
         this.debug = debug;
     }
 
-    public TrieUpdatedMap() {
-        root = new Node('/');
+    public TrieUpdatedMap(boolean debug) {
+        this.debug = debug;
+        rootNode   = new Node('/');
     }
 
     public void insert(final String word) {
@@ -32,7 +33,7 @@ public class TrieUpdatedMap {
         // debug
         if ( debug ) System.out.println(lowercase);
 
-        Node node = root;
+        Node node = rootNode;
         for ( int i = 0; i < lowercase.length(); i++ ) {
             char c = lowercase.charAt(i);
             // debug
@@ -72,7 +73,7 @@ public class TrieUpdatedMap {
     private Node getNode(final String word) {
         final String lowercase = word.toLowerCase();
 
-        Node node = root;
+        Node node = rootNode;
         for ( int i = 0; i < lowercase.length(); i++ ) {
             char c = lowercase.charAt(i);
 

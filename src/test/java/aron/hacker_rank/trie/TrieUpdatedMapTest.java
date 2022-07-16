@@ -9,8 +9,8 @@ public class TrieUpdatedMapTest {
 
     @Test
     public void go() {
-        final TrieUpdatedMap trie = new TrieUpdatedMap();
-//        trie.setDebug(true);
+        final TrieUpdatedMap trie = new TrieUpdatedMap(true);
+
         long start = System.nanoTime();
         trie.insert("alma");
         trie.insert("abba");

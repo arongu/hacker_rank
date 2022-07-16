@@ -1,6 +1,7 @@
 package aron.hacker_rank.trie;
 
 public class TrieUpdated {
+
     private static class Node {
         public char c;
         public boolean isWord;
@@ -15,14 +16,15 @@ public class TrieUpdated {
     }
 
     private final Node rootNode;
-    private boolean debug = false;
+    private boolean debug;
 
     public void setDebug(boolean debug) {
         this.debug = debug;
     }
 
-    public TrieUpdated() {
-        rootNode = new Node('/');
+    public TrieUpdated(boolean debug) {
+        this.debug = debug;
+        rootNode   = new Node('/');
     }
 
     public void insert(final String word) {
@@ -35,7 +37,6 @@ public class TrieUpdated {
             int linkIndex = c - 'a';
 
             if ( debug ) System.out.println("@ " + node.c);
-
 
             if ( node.links[linkIndex] == null ) {
                 node.links[linkIndex] = new Node(c);
