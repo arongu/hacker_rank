@@ -4,14 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TrieUpdatedMap {
+
     private static class Node {
         public char c;
         public boolean isWord;
         public Map<Character, Node> children = null;
 
         public Node(final char c) {
-            this.c   = c;
-            isWord   = false;
+            this.c = c;
+            isWord = false;
         }
     }
 
@@ -27,11 +28,11 @@ public class TrieUpdatedMap {
     }
 
     public void insert(final String word) {
-        Node it = root;
         final String lowercase = word.toLowerCase();
         // debug
         if ( debug ) System.out.println(lowercase);
 
+        Node it = root;
         for ( int i = 0; i < lowercase.length(); i++ ) {
             char c = lowercase.charAt(i);
             // debug
