@@ -1,6 +1,5 @@
 package aron.hacker_rank.queue.exercises._2022_06_30;
 
-import aron.hacker_rank.queue.execises._2022_06_30.QueueStacks;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

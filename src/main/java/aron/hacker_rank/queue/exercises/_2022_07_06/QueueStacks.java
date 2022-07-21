@@ -1,4 +1,4 @@
-package aron.hacker_rank.queue.execises._2022_07_06;
+package aron.hacker_rank.queue.exercises._2022_07_06;
 
 import java.util.Stack;
 

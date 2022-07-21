@@ -1,13 +1,14 @@
-package aron.hacker_rank.queue.exercises._2022_07_15;
+package aron.hacker_rank.queue.exercises._2022_07_21;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static aron.hacker_rank.queue.exercises._2022_07_21.QueueWithLinkedList.EmptyQueueException;
 
 public class QueueWithLinkedListTest {
 
     @Test
-    public void size_shouldReturnTheSizeOfTheEnqueuedElements() {
+    public void size_shouldReturnTheSizeOfTheEnqueuedElements() throws EmptyQueueException {
         final QueueWithLinkedList queue = new QueueWithLinkedList();
         assertEquals(0, queue.size());
         queue.enqueue(1);
@@ -21,7 +22,7 @@ public class QueueWithLinkedListTest {
     }
 
     @Test
-    public void comprehensiveTest() {
+    public void comprehensiveTest() throws EmptyQueueException {
         final QueueWithLinkedList queue = new QueueWithLinkedList();
         assertEquals(0, queue.size());
 
@@ -51,7 +52,7 @@ public class QueueWithLinkedListTest {
     }
 
     @Test
-    public void show() {
+    public void show() throws EmptyQueueException {
         final QueueWithLinkedList queue = new QueueWithLinkedList();
         for ( int i = 0; i < 10; i++ ) {
             queue.enqueue(i);
