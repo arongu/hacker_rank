@@ -60,6 +60,8 @@ public class ContactsByMeTest {
         assertTrue(contacts_dor.containsKey("Dorb"));
 
         contacts.deleteContact("Dksaldkasldkasl");
+        contacts.add("Dorina");
+        assertEquals('a', contacts.getContact("Dorina").getC());
     }
 }
 
