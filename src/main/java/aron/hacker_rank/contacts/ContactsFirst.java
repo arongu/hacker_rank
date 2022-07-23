@@ -7,7 +7,7 @@ public class ContactsFirst {
     // static section
     public static class Node {
         private Map<Character, Node> leafs;
-        private char c;
+        private final char c;
         private boolean isContact;
 
         public Node(char c) {
@@ -34,6 +34,7 @@ public class ContactsFirst {
         verboseCollect = false;
     }
 
+    // debug
     public void setVerbose(final boolean verbose) {
         this.verbose = verbose;
     }
@@ -42,6 +43,7 @@ public class ContactsFirst {
         this.verboseCollect = verboseCollect;
     }
 
+    // add
     public void add (final String name) {
         if ( name == null ) return;
         if ( verbose ) System.out.println("\nadd() " + name);
@@ -74,6 +76,32 @@ public class ContactsFirst {
         current_node.isContact = true;
     }
 
+    // getContacts
+    private void collectLeafIfContact(final Node node, final String contactName, final Map<String, Node> collected) {
+        if ( verboseCollect ) System.out.printf("\ncollectLeafIfContact() (%c) (%s)\n", node.c, contactName);
+
+        if ( node.isContact ) {
+            if ( verboseCollect ) System.out.println("++ " + contactName);
+            collected.put(contactName, node);
+        }
+
+        if ( node.leafs != null ) {
+            for ( Map.Entry<Character, Node> entry : node.leafs.entrySet() ) {
+                Node n = entry.getValue();
+                collectLeafIfContact(n, contactName + n.c, collected);
+            }
+        }
+    }
+
+    public Map<String, Node> getContacts(final String startsWith) {
+        final Map<String,Node> contacts = new HashMap<>();
+
+        collectLeafIfContact(getNode(startsWith), startsWith, contacts);
+
+        return contacts;
+    }
+
+    // getContact
     private Node getNode(final String string) {
         if ( string == null ) return null;
 
@@ -97,30 +125,6 @@ public class ContactsFirst {
         }
 
         return node;
-    }
-
-    private void collectLeafIfContact(final Node node, final String contactName, final Map<String, Node> collected) {
-        if ( verboseCollect ) System.out.printf("\ncollectLeafIfContact() (%c) (%s)\n", node.c, contactName);
-
-        if ( node.isContact ) {
-            if ( verboseCollect ) System.out.println("++ " + contactName);
-            collected.put(contactName, node);
-        }
-
-        if ( node.leafs != null ) {
-            for ( Map.Entry<Character, Node> entry : node.leafs.entrySet() ) {
-                Node n = entry.getValue();
-                collectLeafIfContact(n, contactName + n.c, collected);
-            }
-        }
-    }
-
-    public Map<String, Node> getContacts(final String startsWith) {
-        final Map<String,Node> contacts = new HashMap<>();
-
-        collectLeafIfContact(getNode(startsWith), startsWith, contacts);
-
-        return contacts;
     }
 
     public Node getContact(final String name) {
