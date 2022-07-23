@@ -26,13 +26,14 @@ public class ContactsFirstTest {
         contacts.add("Cecil");
         contacts.add("Dorka");
         contacts.add("Dora");
+        contacts.add("Dorb");
         contacts.add("Dorina");
     }
 
     @Test
     public void go() {
-        contacts.getContacts("Alm");
-        Map<String, ContactsFirst.Node> contacts_alm = contacts.getContacts("Alm");
+        contacts.getContactsStartingWith("Alm");
+        Map<String, ContactsFirst.Node> contacts_alm = contacts.getContactsStartingWith("Alm");
         assertEquals('a', contacts_alm.get("Alma").getC());
         assertEquals('s', contacts_alm.get("Almas").getC());
         assertEquals('k', contacts_alm.get("AlmasSok").getC());
@@ -43,6 +44,25 @@ public class ContactsFirstTest {
         assertEquals('a', contacts.getContact("Dora").getC());
         // todo delete contact
         // delete all subsequent
+    }
+
+    @Test
+    public void delete() {
+        /*
+        contacts.add("Dorka");
+        contacts.add("Dora");
+        contacts.add("Dorb");
+        contacts.add("Dorina"); <-
+         */
+        contacts.deleteContact("Dorina");
+
+        Map<String, ContactsFirst.Node> contacts_dor = contacts.getContactsStartingWith("Dor");
+        assertFalse(contacts_dor.containsKey("Dorina"));
+        assertTrue(contacts_dor.containsKey("Dorka"));
+        assertTrue(contacts_dor.containsKey("Dora"));
+        assertTrue(contacts_dor.containsKey("Dorb"));
+
+        contacts.deleteContact("Dksaldkasldkasl");
     }
 }
 

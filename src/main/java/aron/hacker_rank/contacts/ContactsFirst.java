@@ -2,6 +2,7 @@ package aron.hacker_rank.contacts;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class ContactsFirst {
     // static section
@@ -10,13 +11,9 @@ public class ContactsFirst {
         private final char c;
         private boolean isContact;
 
-        public Node(char c) {
+        public Node(final char c) {
             this.c = c;
             this.isContact = false;
-        }
-
-        public void setIsContact(final boolean isContact) {
-            this.isContact = isContact;
         }
 
         public char getC() {
@@ -44,7 +41,7 @@ public class ContactsFirst {
     }
 
     // add
-    public void add (final String name) {
+    public void add(final String name) {
         if ( name == null ) return;
         if ( verbose ) System.out.printf("\nadd ( %s )\n", name);
 
@@ -93,7 +90,7 @@ public class ContactsFirst {
         }
     }
 
-    public Map<String, Node> getContacts(final String startsWith) {
+    public Map<String, Node> getContactsStartingWith(final String startsWith) {
         final Map<String,Node> contacts = new HashMap<>();
 
         collectLeafIfContact(getNode(startsWith), startsWith, contacts);
@@ -133,6 +130,44 @@ public class ContactsFirst {
     }
 
     public void deleteContact(final String name) {
+        if ( name == null ) return;
+        if ( verbose ) System.out.printf("\ndelete ( %s )\n", name);
 
+        // collect nodes as it traverses through the tree
+        final Stack<Map<Character, Node>> parents = new Stack<>();
+        Node node = root;
+
+        for ( char c : name.toCharArray() ) {
+            Node lookup = node.leafs.get(c);
+            if ( lookup == null ) {
+                if ( verbose ) System.out.printf("?- %c\n", c);
+                return;
+            }
+
+            parents.push(node.leafs);
+            node = lookup;
+        }
+
+        // self test
+        if ( parents.size() != name.length() ) {
+            System.out.printf("delete ( %s ) -- error length = %d, stack = %d\n", name, name.length(), parents.size());
+        }
+
+        // delete nodes
+        for ( int i = name.length() - 1; i >= 0; i-- ) {
+            Map<Character, Node> parent = parents.pop();
+            char c = name.charAt(i);
+
+            if ( parent != null ) {
+                Node toBeDeleted = parent.get(c);
+                if ( ! (toBeDeleted.leafs != null && toBeDeleted.leafs.size() > 0) ) {
+                    parent.remove(c);
+                    if ( verbose ) System.out.printf("- %c\n", c);
+                } else {
+                    if ( verbose ) System.out.printf("!- %c\n", c);
+                }
+
+            }
+        }
     }
 }
