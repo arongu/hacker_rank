@@ -133,24 +133,20 @@ public class ContactsByMe {
         if ( name == null ) return;
         if ( verbose ) System.out.printf("\ndelete ( %s )\n", name);
 
-        // collect nodes as it traverses through the tree
+        // collect all the visited nodes as we travel through the trie until we reach the destination
         final Stack<Map<Character, Node>> parents = new Stack<>();
-        Node node = root;
+        Node current = root;
 
         for ( char c : name.toCharArray() ) {
-            Node lookup = node.leafs.get(c);
-            if ( lookup == null ) {
+            Node nextNode = current.leafs.get(c);
+            if ( nextNode == null ) {
                 if ( verbose ) System.out.printf("?- %c\n", c);
-                return;
+
+                return; // stop immediately if the next node does not exist
             }
 
-            parents.push(node.leafs);
-            node = lookup;
-        }
-
-        // self test
-        if ( parents.size() != name.length() ) {
-            System.out.printf("delete ( %s ) -- error length = %d, stack = %d\n", name, name.length(), parents.size());
+            parents.push(current.leafs);
+            current = nextNode;
         }
 
         // delete nodes
@@ -160,13 +156,14 @@ public class ContactsByMe {
 
             if ( parent != null ) {
                 Node toBeDeleted = parent.get(c);
+                // only remove the node if it has no other leaves
                 if ( ! (toBeDeleted.leafs != null && toBeDeleted.leafs.size() > 0) ) {
                     parent.remove(c);
                     if ( verbose ) System.out.printf("- %c\n", c);
+
                 } else {
                     if ( verbose ) System.out.printf("!- %c\n", c);
                 }
-
             }
         }
     }

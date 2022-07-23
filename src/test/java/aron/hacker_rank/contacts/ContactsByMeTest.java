@@ -32,7 +32,6 @@ public class ContactsByMeTest {
 
     @Test
     public void go() {
-        contacts.getContactsStartingWith("Alm");
         Map<String, ContactsByMe.Node> contacts_alm = contacts.getContactsStartingWith("Alm");
         assertEquals('a', contacts_alm.get("Alma").getC());
         assertEquals('s', contacts_alm.get("Almas").getC());
