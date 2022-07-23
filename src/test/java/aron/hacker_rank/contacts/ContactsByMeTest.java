@@ -62,6 +62,7 @@ public class ContactsByMeTest {
         contacts.deleteContact("Dksaldkasldkasl");
         contacts.add("Dorina");
         assertEquals('a', contacts.getContact("Dorina").getC());
+        contacts.deleteContact("D");
     }
 }
 
