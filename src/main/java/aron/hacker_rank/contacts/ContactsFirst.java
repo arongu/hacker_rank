@@ -46,7 +46,7 @@ public class ContactsFirst {
     // add
     public void add (final String name) {
         if ( name == null ) return;
-        if ( verbose ) System.out.println("\nadd() " + name);
+        if ( verbose ) System.out.printf("\nadd ( %s )\n", name);
 
         Node current_node = root;
         for ( char letter : name.toCharArray() ) {
@@ -78,7 +78,7 @@ public class ContactsFirst {
 
     // getContacts
     private void collectLeafIfContact(final Node node, final String contactName, final Map<String, Node> collected) {
-        if ( verboseCollect ) System.out.printf("\ncollectLeafIfContact() (%c) (%s)\n", node.c, contactName);
+        if ( verboseCollect ) System.out.printf("\ncollectLeafIfContact ( %c, %s )\n", node.c, contactName);
 
         if ( node.isContact ) {
             if ( verboseCollect ) System.out.println("++ " + contactName);
@@ -105,7 +105,7 @@ public class ContactsFirst {
     private Node getNode(final String string) {
         if ( string == null ) return null;
 
-        if ( verbose ) System.out.println("\ngetNode() " + string);
+        if ( verbose ) System.out.printf("\ngetNode ( %s )\n", string);
 
         Node node = root;
         for ( char c : string.toCharArray() ) {
@@ -121,7 +121,7 @@ public class ContactsFirst {
         }
 
         if ( verbose ) {
-            if ( node != null ) System.out.println("@ " + node.c + " isContact " + node.isContact);
+            if ( node != null ) System.out.println("@ " + node.c + "\nisContact = " + node.isContact);
         }
 
         return node;
