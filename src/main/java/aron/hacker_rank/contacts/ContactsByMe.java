@@ -134,7 +134,7 @@ public class ContactsByMe {
         if ( verbose ) System.out.printf("\ndelete ( %s )\n", name);
 
         // collect all the visited nodes as we travel through the trie until we reach the destination
-        final Stack<Map<Character, Node>> parents = new Stack<>();
+        final Stack<Node> history = new Stack<>();
         Node current = root;
 
         for ( char c : name.toCharArray() ) {
@@ -145,21 +145,26 @@ public class ContactsByMe {
                 return; // stop immediately if the next node does not exist
             }
 
-            parents.push(current.leafs);
+            history.push(current);
             current = nextNode;
         }
 
         // delete nodes
         for ( int i = name.length() - 1; i >= 0; i-- ) {
-            Map<Character, Node> parent = parents.pop();
+            Node parentNode = history.pop();
+            Map<Character, Node> parentLeaves = parentNode.leafs;
+
             char c = name.charAt(i);
 
-            if ( parent != null ) {
-                Node toBeDeleted = parent.get(c);
+            if ( parentLeaves != null ) {
+                Node deleteMe = parentLeaves.get(c);
                 // only remove the node if it has no other leaves
-                if ( ! (toBeDeleted.leafs != null && toBeDeleted.leafs.size() > 0) ) {
-                    parent.remove(c);
+                if ( deleteMe.leafs == null || deleteMe.leafs.size() == 0 ) {
                     if ( verbose ) System.out.printf("- %c\n", c);
+                    parentLeaves.remove(c);
+
+                    // delete the map itself, if it is not being used
+                    if ( parentLeaves.size() == 0 ) parentNode.leafs = null;
 
                 } else {
                     if ( verbose ) System.out.printf("!- %c\n", c);
