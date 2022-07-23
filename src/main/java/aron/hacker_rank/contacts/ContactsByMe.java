@@ -134,37 +134,37 @@ public class ContactsByMe {
         if ( verbose ) System.out.printf("\ndelete ( %s )\n", name);
 
         // collect all the visited nodes as we travel through the trie until we reach the destination
-        final Stack<Node> history = new Stack<>();
+        final Stack<Node> parentNodes = new Stack<>();
+
         Node current = root;
-
         for ( char c : name.toCharArray() ) {
-            Node nextNode = current.leafs.get(c);
-            if ( nextNode == null ) {
-                if ( verbose ) System.out.printf("?- %c\n", c);
+            Node child = current.leafs.get(c);
 
+            if ( child == null ) {
+                if ( verbose ) System.out.printf("?- %c\n", c);
                 return; // stop immediately if the next node does not exist
             }
 
-            history.push(current);
-            current = nextNode;
+            parentNodes.push(current);
+            current = child;
         }
 
         // delete nodes
         for ( int i = name.length() - 1; i >= 0; i-- ) {
-            Node parentNode = history.pop();
-            Map<Character, Node> parentLeaves = parentNode.leafs;
+            Node parentNode = parentNodes.pop();
+            Map<Character, Node> leafs = parentNode.leafs;
 
             char c = name.charAt(i);
 
-            if ( parentLeaves != null ) {
-                Node deleteMe = parentLeaves.get(c);
+            if ( leafs != null ) {
+                Node deleteMe = leafs.get(c);
                 // only remove the node if it has no other leaves
                 if ( deleteMe.leafs == null || deleteMe.leafs.size() == 0 ) {
                     if ( verbose ) System.out.printf("- %c\n", c);
-                    parentLeaves.remove(c);
+                    leafs.remove(c);
 
                     // delete the map itself, if it is not being used
-                    if ( parentLeaves.size() == 0 ) parentNode.leafs = null;
+                    if ( leafs.size() == 0 ) parentNode.leafs = null;
 
                 } else {
                     if ( verbose ) System.out.printf("!- %c\n", c);
