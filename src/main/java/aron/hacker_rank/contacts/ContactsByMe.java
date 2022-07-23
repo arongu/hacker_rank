@@ -45,32 +45,34 @@ public class ContactsByMe {
         if ( name == null ) return;
         if ( verbose ) System.out.printf("\nadd ( %s )\n", name);
 
-        Node current_node = root;
-        for ( char letter : name.toCharArray() ) {
-            if ( verbose ) System.out.println("@ " + current_node.c);
+        Node current = root;
+        for ( char c : name.toCharArray() ) {
+            if ( verbose ) System.out.println("@ " + current.c);
 
-            if ( current_node.leafs == null ) {
-                if ( verbose ) System.out.println("+ " + letter);
+            // create leafs if it does not have any
+            if ( current.leafs == null ) {
+                if ( verbose ) System.out.println("+ " + c);
 
-                Node new_node_with_letter = new Node(letter);
-                current_node.leafs = new HashMap<>();
-                current_node.leafs.put(letter, new_node_with_letter);
-                current_node = new_node_with_letter;
+                Node newNode  = new Node(c);
+                current.leafs = new HashMap<>();
+                current.leafs.put(c, newNode);
+                current = newNode;
 
+            // check leaves to see if it already exists
             } else {
-                Node node_with_letter = current_node.leafs.get(letter);
+                Node node = current.leafs.get(c);
 
-                if ( node_with_letter == null ) {
-                    if ( verbose ) System.out.println("+ " + letter);
-                    node_with_letter = new Node(letter);
-                    current_node.leafs.put(letter, node_with_letter);
+                if ( node == null ) {
+                    if ( verbose ) System.out.println("+ " + c);
+                    node = new Node(c);
+                    current.leafs.put(c, node);
                 }
 
-                current_node = node_with_letter;
+                current = node;
             }
         }
 
-        current_node.isContact = true;
+        current.isContact = true;
     }
 
     // getContacts
