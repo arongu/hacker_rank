@@ -46,32 +46,32 @@ public class ContactsFirst {
         if ( name == null ) return;
         if ( verbose ) System.out.println("\nadd() " + name);
 
-        Node curr = root;
-        for ( char character : name.toCharArray() ) {
-            if ( verbose ) System.out.println("@ " + curr.c);
+        Node current_node = root;
+        for ( char letter : name.toCharArray() ) {
+            if ( verbose ) System.out.println("@ " + current_node.c);
 
-            if ( curr.leafs == null ) {
-                if ( verbose )  System.out.println("+ " + character);
+            if ( current_node.leafs == null ) {
+                if ( verbose ) System.out.println("+ " + letter);
 
-                Node nextNode = new Node(character);
-                curr.leafs    = new HashMap<>();
-                curr.leafs.put(character, nextNode);
-                curr = nextNode;
+                Node new_node_with_letter = new Node(letter);
+                current_node.leafs = new HashMap<>();
+                current_node.leafs.put(letter, new_node_with_letter);
+                current_node = new_node_with_letter;
 
             } else {
-                Node nextNode = curr.leafs.get(character);
+                Node node_with_letter = current_node.leafs.get(letter);
 
-                if ( nextNode == null ) {
-                    if ( verbose ) System.out.println("+ " + character);
-                    nextNode = new Node(character);
-                    curr.leafs.put(character, nextNode);
+                if ( node_with_letter == null ) {
+                    if ( verbose ) System.out.println("+ " + letter);
+                    node_with_letter = new Node(letter);
+                    current_node.leafs.put(letter, node_with_letter);
                 }
 
-                curr = nextNode;
+                current_node = node_with_letter;
             }
         }
 
-        curr.isContact = true;
+        current_node.isContact = true;
     }
 
     private Node getNode(final String string) {

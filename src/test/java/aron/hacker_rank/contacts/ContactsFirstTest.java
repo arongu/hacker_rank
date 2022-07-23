@@ -41,6 +41,8 @@ public class ContactsFirstTest {
 
         assertNull(contacts.getContact("Dorx"));
         assertEquals('a', contacts.getContact("Dora").getC());
+        // todo delete contact
+        // delete all subsequent
     }
 }
 
