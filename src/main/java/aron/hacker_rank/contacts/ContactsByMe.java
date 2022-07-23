@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class ContactsFirst {
+public class ContactsByMe {
     // static section
     public static class Node {
         private Map<Character, Node> leafs;
@@ -25,7 +25,7 @@ public class ContactsFirst {
     private final Node root;
     private boolean verbose, verboseCollect;
 
-    public ContactsFirst() {
+    public ContactsByMe() {
         root           = new Node('/');
         verbose        = false;
         verboseCollect = false;

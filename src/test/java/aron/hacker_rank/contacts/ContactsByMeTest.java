@@ -6,11 +6,11 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ContactsFirstTest {
-    private static final ContactsFirst contacts;
+public class ContactsByMeTest {
+    private static final ContactsByMe contacts;
 
     static {
-        contacts = new ContactsFirst();
+        contacts = new ContactsByMe();
         contacts.setVerbose(true);
 
         contacts.add("Alma");
@@ -33,7 +33,7 @@ public class ContactsFirstTest {
     @Test
     public void go() {
         contacts.getContactsStartingWith("Alm");
-        Map<String, ContactsFirst.Node> contacts_alm = contacts.getContactsStartingWith("Alm");
+        Map<String, ContactsByMe.Node> contacts_alm = contacts.getContactsStartingWith("Alm");
         assertEquals('a', contacts_alm.get("Alma").getC());
         assertEquals('s', contacts_alm.get("Almas").getC());
         assertEquals('k', contacts_alm.get("AlmasSok").getC());
@@ -42,8 +42,6 @@ public class ContactsFirstTest {
 
         assertNull(contacts.getContact("Dorx"));
         assertEquals('a', contacts.getContact("Dora").getC());
-        // todo delete contact
-        // delete all subsequent
     }
 
     @Test
@@ -56,7 +54,7 @@ public class ContactsFirstTest {
          */
         contacts.deleteContact("Dorina");
 
-        Map<String, ContactsFirst.Node> contacts_dor = contacts.getContactsStartingWith("Dor");
+        Map<String, ContactsByMe.Node> contacts_dor = contacts.getContactsStartingWith("Dor");
         assertFalse(contacts_dor.containsKey("Dorina"));
         assertTrue(contacts_dor.containsKey("Dorka"));
         assertTrue(contacts_dor.containsKey("Dora"));
