@@ -64,5 +64,12 @@ public class ContactsByMeTest {
         assertEquals('a', contacts.getContact("Dorina").getC());
         contacts.deleteContact("D");
     }
+
+    @Test
+    public void delete2() {
+        final ContactsByMe contacts = new ContactsByMe();
+        contacts.setVerbose(true);
+        contacts.deleteContact("alma");
+    }
 }
 

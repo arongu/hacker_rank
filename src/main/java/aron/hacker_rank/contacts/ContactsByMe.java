@@ -140,8 +140,12 @@ public class ContactsByMe {
 
         Node current = root;
         for ( char c : name.toCharArray() ) {
-            Node child = current.leafs.get(c);
+            if ( current.leafs == null ) {
+                if ( verbose ) System.out.printf("%c -> %c (no children)\n", current.c, c);
+                return;
+            }
 
+            Node child = current.leafs.get(c);
             if ( child == null ) {
                 if ( verbose ) System.out.printf("?- %c\n", c);
                 return; // stop immediately if the next node does not exist
