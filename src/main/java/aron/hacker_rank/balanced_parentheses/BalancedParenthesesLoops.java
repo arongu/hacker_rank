@@ -69,7 +69,7 @@ public class BalancedParenthesesLoops {
     public static boolean isBalanced(final String string) {
         final char[] arr = string.toCharArray();
         int[] counts     = countOpeningsAndClosings(arr); // count the openings and closings
-        if (counts[0] != counts[1]) return false;         // faile if the number of openings and closing are not equal
+        if (counts[0] != counts[1]) return false;         // fail if the number of openings and closing are not equal
 
         // find the furthest opening and itc closing parentheses
         int pos_opening = findFurthestOpening(arr);
