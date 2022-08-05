@@ -36,7 +36,6 @@ public class BinaryTreeRecursive {
             } else {
                 right.add(n);
             }
-
         }
     }
 }
