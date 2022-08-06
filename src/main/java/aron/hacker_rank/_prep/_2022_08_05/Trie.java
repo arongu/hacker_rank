@@ -26,8 +26,8 @@ public class Trie {
         Trie lastPos;
 
         if ( trie.leafs == null ) {
-            trie.leafs = new Trie[26];
-            lastPos            = new Trie(c);
+            trie.leafs        = new Trie[26];
+            lastPos           = new Trie(c);
             trie.leafs[index] = lastPos;
             System.out.printf("@%c ++ %c\n", trie.c, lastPos.c);
 
@@ -69,7 +69,7 @@ public class Trie {
         Trie pos = this.leafs[getCharacterIndex(chars[0])];
         // set first position where it should be root node -> leaves @ char index
 
-        for ( int i = 0; i < chars.length; i++ ) {
+        for ( int i = 0, j = 1; i < chars.length; i++, j++ ) {
             // check if character matches
             if ( pos == null || pos.c != chars[i] ) {
                 return false;
@@ -79,7 +79,7 @@ public class Trie {
             // move the position of the iterator for the next position
             // if possible, if not set it to null
             if ( pos.leafs != null ) {
-                pos = pos.leafs[getCharacterIndex(chars[i + 1])];
+                pos = pos.leafs[getCharacterIndex(chars[j])];
             } else {
                 pos = null;
             }

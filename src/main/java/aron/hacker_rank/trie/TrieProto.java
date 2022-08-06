@@ -22,14 +22,14 @@ public class TrieProto {
     public void insert(final String word) {
         Node it = root;
 
-        for ( int i = 0; i < word.length(); i++ ) {
-            char c = word.charAt(i);
-            int characterIndex = c - 'a';
+        for ( char c : word.toCharArray() ) {
+            int index = c - 'a';
 
-            if ( it.children[characterIndex] == null ){
-                it.children[characterIndex] = new Node(c);
+            if ( it.children[index] == null ){
+                it.children[index] = new Node(c);
+
             } else {
-                it = it.children[characterIndex];
+                it = it.children[index];
             }
         }
 
