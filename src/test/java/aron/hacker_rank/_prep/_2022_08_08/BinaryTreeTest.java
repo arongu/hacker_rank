@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BinaryTreeTest {
+
     @Test
     public void comprehensiveTest () {
         final BinaryTree binaryTree = new BinaryTree(0);
@@ -42,5 +43,18 @@ public class BinaryTreeTest {
         }
 
         tree.printInOrder();
+    }
+
+    @Test
+    public void check() {
+        final BinaryTree tree      = new BinaryTree(0);
+        final Random random        = new Random();
+
+        for (int i = 0; i < 20; i++ ) {
+            int n = random.nextInt(10000);
+            tree.add(n);
+        }
+
+        assertTrue(CheckTree.checkTree(tree, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 }

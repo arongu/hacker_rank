@@ -9,6 +9,18 @@ public class BinaryTree {
         this.n = n;
     }
 
+    public BinaryTree getLeft() {
+        return left;
+    }
+
+    public int getN() {
+        return n;
+    }
+
+    public BinaryTree getRight() {
+        return right;
+    }
+
     public void add(final int n) {
         if ( n < this.n ) {
             if ( left == null ) {
