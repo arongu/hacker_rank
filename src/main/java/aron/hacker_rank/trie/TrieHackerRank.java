@@ -23,14 +23,14 @@ public class TrieHackerRank {
             if ( index == string.length() ) return;
 
             char c = string.charAt(index);
-            Node child = getNode(c);
+            Node childNode = getNode(c);
 
-            if ( child == null ) {
-                child = new Node();
-                setNode(c, child);
+            if ( childNode == null ) {
+                childNode = new Node();
+                setNode(c, childNode);
             }
 
-            child.add(string, index + 1);
+            childNode.add(string, index + 1);
         }
 
         public void add(final String string) {
