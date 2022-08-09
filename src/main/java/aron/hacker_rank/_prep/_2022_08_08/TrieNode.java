@@ -1,5 +1,7 @@
 package aron.hacker_rank._prep._2022_08_08;
 
+import java.util.Stack;
+
 public class TrieNode {
     private static int calculateIndex(final char c) {
         return c - 'a';
@@ -23,6 +25,7 @@ public class TrieNode {
 
     // internal methods
     private TrieNode getNode(final TrieNode node, final char c) {
+        if ( node == null ) return null;
         return node.children == null ? null : node.children[calculateIndex(c)];
     }
 
@@ -80,5 +83,60 @@ public class TrieNode {
         }
 
         return node;
+    }
+   //'/'
+    /* a
+        \
+         p
+          \
+           p - is a word
+         /  \
+        s    l
+              \
+               e - is a word
+     */
+
+    private Stack<TrieNode> getTraversed(final String string) {
+        Stack<TrieNode> traversed = new Stack<>();
+        traversed.push(this);
+
+        if ( string != null && !string.isEmpty() ) {
+            TrieNode node = this;
+            for ( char c : string.toCharArray() ) {
+                node = getNode(node, c);
+                traversed.push(node);
+            }
+        }
+
+        return traversed;
+    }
+
+    private boolean isChildrenEmpty(final TrieNode node) {
+        if ( node == null || node.children == null ) return true;
+
+        for ( int i = 0; i < 26; i++ ) {
+            if ( node.children[i] != null ) return false;
+        }
+
+        return true;
+    }
+
+    public void remove(final String string) {
+        if ( string == null || string.isEmpty() ) return;
+
+        Stack<TrieNode> history = getTraversed(string);
+        TrieNode child, parent;
+
+        while ( ! history.isEmpty() ) {
+            child = history.pop();
+            parent = history.pop();
+
+            if ( child == null || parent == null ) {
+                return;
+
+            } else if ( isChildrenEmpty(child) ) {
+                parent.children[calculateIndex(child.c)] = null;
+            }
+        }
     }
 }
