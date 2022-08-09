@@ -146,10 +146,3 @@ public class TrieNode {
         }
     }
 }
-
-/*
-    '/'
-    ---------- remove (apple)
-
-
- */
