@@ -98,10 +98,10 @@ public class TrieNode {
 
     private Stack<TrieNode> getTraversed(final String string) {
         Stack<TrieNode> traversed = new Stack<>();
-        traversed.push(this);
+        TrieNode node = this;
+        traversed.push(node);
 
         if ( string != null && !string.isEmpty() ) {
-            TrieNode node = this;
             for ( char c : string.toCharArray() ) {
                 node = getNode(node, c);
                 traversed.push(node);
@@ -111,7 +111,7 @@ public class TrieNode {
         return traversed;
     }
 
-    private boolean isChildrenEmpty(final TrieNode node) {
+    private boolean isSafeToDelete(final TrieNode node) {
         if ( node == null || node.children == null ) return true;
 
         for ( int i = 0; i < 26; i++ ) {
@@ -125,18 +125,31 @@ public class TrieNode {
         if ( string == null || string.isEmpty() ) return;
 
         Stack<TrieNode> history = getTraversed(string);
-        TrieNode child, parent;
+        TrieNode child = history.pop(), parent = history.pop();
 
+        System.out.printf("remove: %s\n", string);
         while ( ! history.isEmpty() ) {
-            child = history.pop();
-            parent = history.pop();
-
             if ( child == null || parent == null ) {
                 return;
 
-            } else if ( isChildrenEmpty(child) ) {
+            } else if ( isSafeToDelete(child) ) {
+                System.out.printf("parent: %c, child: %c\n", parent.c, child.c);
+                System.out.printf("delete: %c\n", child.c);
+
                 parent.children[calculateIndex(child.c)] = null;
+                child = parent;
+                parent = history.pop();
+
+            } else {
+                return;
             }
         }
     }
 }
+
+/*
+    '/'
+    ---------- remove (apple)
+
+
+ */
