@@ -9,7 +9,7 @@ public class TrieNode {
 
     private TrieNode[] children;
     private boolean complete;
-    private char c;
+    private final char c;
 
     public TrieNode() {
         c = '/';

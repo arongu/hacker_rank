@@ -88,5 +88,6 @@ public class TrieTest {
         trie.remove("tejes");
         assertFalse(trie.search("tejes"));
         assertTrue(trie.search("tej"));
+        assertTrue(trie.search("tejfol"));
     }
 }
