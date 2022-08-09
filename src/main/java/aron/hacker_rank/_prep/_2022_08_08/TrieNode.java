@@ -84,16 +84,19 @@ public class TrieNode {
 
         return node;
     }
-   //'/'
-    /* a
+
+    /*
+       /
         \
-         p
+         a
           \
-           p - is a word
-         /  \
-        s    l
-              \
-               e - is a word
+           p
+            \
+             p - is a word
+           /  \
+          s    l
+                \
+                 e - is a word
      */
 
     private Stack<TrieNode> getTraversed(final String string) {
