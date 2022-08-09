@@ -109,14 +109,15 @@ public class TrieNode {
         Stack<TrieNode> visited = getVisitedNodes(s);
         if ( visited.size() != s.length() + 1 ) return;
 
-        TrieNode child = visited.pop(), parent = visited.pop();
+        TrieNode parent, child = visited.pop();
+
         while ( ! visited.isEmpty() ) {
+            parent = visited.pop();
 
             if ( isSafeToDelete(child) ) {
                 System.out.printf("delete %c\n", child.letter);
                 parent.leafs[calcIndex(child.letter)] = null;
                 child = parent;
-                parent = visited.pop();
 
             } else {
                 return;

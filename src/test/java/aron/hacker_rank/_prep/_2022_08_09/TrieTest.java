@@ -81,4 +81,14 @@ public class TrieTest {
         assertTrue(trie.contains("tej"));
         assertTrue(trie.contains("tejfol"));
     }
+
+    @Test
+    public void testRemove2() {
+        final TrieNode trie = new TrieNode();
+        trie.insert("alma");
+
+        assertTrue(trie.contains("alma"));
+        trie.remove("alma");
+        assertFalse(trie.contains("alma"));
+    }
 }
