@@ -36,6 +36,7 @@ public class Trie {
     }
 
     // private utility
+    // read
     private Trie getNode(final char c) {
         return leafs != null ? leafs[getIndex(c)] : null;
     }
@@ -68,6 +69,7 @@ public class Trie {
         return visited;
     }
 
+    // write
     private Trie addLeaf(final char c) {
         int index = getIndex(c);
         Trie leaf;
