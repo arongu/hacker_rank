@@ -128,20 +128,19 @@ public class TrieNode {
         if ( string == null || string.isEmpty() ) return;
 
         Stack<TrieNode> history = getTraversed(string);
-        TrieNode child = history.pop(), parent = history.pop();
+        TrieNode parent, child = history.pop();
 
         System.out.printf("remove: %s\n", string);
         while ( ! history.isEmpty() ) {
+            parent = history.pop();
             if ( child == null || parent == null ) {
                 return;
 
             } else if ( isSafeToDelete(child) ) {
-                System.out.printf("parent: %c, child: %c\n", parent.c, child.c);
                 System.out.printf("delete: %c\n", child.c);
 
                 parent.children[calculateIndex(child.c)] = null;
                 child = parent;
-                parent = history.pop();
 
             } else {
                 return;

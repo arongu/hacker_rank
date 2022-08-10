@@ -90,4 +90,24 @@ public class TrieTest {
         assertTrue(trie.search("tej"));
         assertTrue(trie.search("tejfol"));
     }
+
+    @Test
+    public void testRemove2() {
+        final TrieNode trie = new TrieNode();
+        trie.insert("alma");
+
+        assertTrue(trie.search("alma"));
+        trie.remove("alma");
+        assertFalse(trie.search("alma"));
+    }
+
+    @Test
+    public void testRemove3() {
+        final TrieNode trie = new TrieNode();
+        trie.insert("alma");
+
+        assertFalse(trie.search("almakok"));
+        trie.remove("almakok");
+        assertTrue(trie.search("alma"));
+    }
 }
