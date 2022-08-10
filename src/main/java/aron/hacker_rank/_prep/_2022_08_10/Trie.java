@@ -45,7 +45,7 @@ public class Trie {
 
         Trie pos = this;
         for ( char c : s.toCharArray() ) {
-            pos = pos.leafs[getIndex(c)];
+            pos = pos.getNode(c);
             if ( pos == null ) break;
         }
 
@@ -113,6 +113,7 @@ public class Trie {
     }
 
     public void remove(final String s) {
+        System.out.println("delete " + s);
         if ( isStringBad(s) ) return;
         final Stack<Trie> visited = getVisitedNodes(s);
 
