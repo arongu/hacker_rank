@@ -3,7 +3,7 @@ package aron.hacker_rank.stack;
 public class StackImpl<E> {
 
     private static class Node<E> {
-        private Node<E> next, previous;
+        private Node<E> next = null, previous = null;
         private final E element;
 
         private Node(final E element) {
