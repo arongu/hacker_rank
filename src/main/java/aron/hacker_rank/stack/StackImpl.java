@@ -30,15 +30,15 @@ public class StackImpl<E> {
     public E pop() {
         if ( head == null ) return null;
 
-        final E element = head.element;
-        Node<E> previous = head.previous;
-        if ( previous != null ) {
-            previous.next = null;
+        final E popped   = head.element;
+        Node<E> new_head = head.previous;
+        if ( new_head != null ) {
+            new_head.next = null;
         }
 
-        head = previous;
+        head = new_head;
         size--;
-        return element;
+        return popped;
     }
 
     public E peek() {
