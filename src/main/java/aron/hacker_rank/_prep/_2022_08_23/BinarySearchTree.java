@@ -8,6 +8,18 @@ public class BinarySearchTree {
         this.n = n;
     }
 
+    public BinarySearchTree getLeft() {
+        return left;
+    }
+
+    public BinarySearchTree getRight() {
+        return right;
+    }
+
+    public int getN() {
+        return n;
+    }
+
     private BinarySearchTree getNodeIfExistsOtherwiseItsParent(final int n) {
         BinarySearchTree curr = this;
 
