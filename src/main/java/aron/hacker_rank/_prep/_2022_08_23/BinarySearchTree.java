@@ -8,31 +8,38 @@ public class BinarySearchTree {
         this.n = n;
     }
 
-    private BinarySearchTree getNodeOrParent(final int n) {
+    private BinarySearchTree getNodeIfExistsOtherwiseItsParent(final int n) {
         BinarySearchTree curr = this;
 
         while (true) {
-            if ( curr.n == n ) return curr;
+            if ( curr.n == n )
+                return curr;
 
             if ( n < curr.n ) {
-                if ( curr.left == null ) return curr;
+                if ( curr.left == null )
+                    return curr;
+
                 else {
                     curr = curr.left;
                     continue;
                 }
             }
 
-            if ( curr.right == null ) return curr;
-            else curr = curr.right;
+            if ( curr.right == null ) {
+                return curr;
+
+            } else {
+                curr = curr.right;
+            }
         }
     }
 
     public boolean contains(final int n) {
-        return getNodeOrParent(n).n == n;
+        return getNodeIfExistsOtherwiseItsParent(n).n == n;
     }
 
     public void add(final int n) {
-        final BinarySearchTree tree = getNodeOrParent(n);
+        final BinarySearchTree tree = getNodeIfExistsOtherwiseItsParent(n);
         if ( tree.n == n ) {
             System.out.println("already have it " + n);
             return;
