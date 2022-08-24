@@ -47,7 +47,7 @@ public class Trie {
         }
 
         if ( nodes[index] != null ) {
-            System.out.printf("== %c\n", c);
+            System.out.printf(".. %c\n", c);
             return nodes[index];
 
         } else {
@@ -71,6 +71,7 @@ public class Trie {
     }
 
     public void insert(final String string) {
+        System.out.println("++ " + string);
         Trie node = this;
         for ( char c : string.toCharArray() ) {
             node = node.add(c);
