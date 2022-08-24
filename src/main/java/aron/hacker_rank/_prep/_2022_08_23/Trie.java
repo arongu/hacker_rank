@@ -9,7 +9,7 @@ public class Trie {
     }
 
     private static boolean isSafeToDelete(final Trie trie) {
-        if ( trie.nodes == null ) return true;
+        if ( trie == null || trie.nodes == null ) return true;
 
         for ( int i = 0; i < 26; i++ ) {
             if ( trie.nodes[i] != null ) return false;
