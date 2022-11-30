@@ -31,6 +31,14 @@ public class BinaryTree {
         return lastValidNode;
     }
 
+    private static boolean validate(final Node node, final int min, final int max) {
+        if ( node == null ) return true;
+        if ( node.value > max || node.value < min ) return false;
+
+        return validate(node.left, min, node.value - 1 ) &&
+                validate(node.right, node.value + 1, max);
+    }
+
     private Node root;
 
     public void add(final int value) {
@@ -58,5 +66,9 @@ public class BinaryTree {
 
     public void printInOrder() {
         printInOrder(root);
+    }
+
+    public boolean isTreeValid() {
+        return validate(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 }

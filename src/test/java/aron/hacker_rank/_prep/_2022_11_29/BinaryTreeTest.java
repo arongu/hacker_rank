@@ -23,6 +23,7 @@ public class BinaryTreeTest {
         binaryTree.add(101);
         binaryTree.add(99);
         assertTrue(binaryTree.contains(90));
+        assertTrue(binaryTree.isTreeValid());
     }
 
     @Test
