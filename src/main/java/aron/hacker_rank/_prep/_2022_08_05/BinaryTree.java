@@ -13,23 +13,23 @@ public class BinaryTree {
     private Node root;
 
     private Node getNodeOrParent(final int n) {
-        Node ptr = root, last = root;
+        Node currentNode = root, lastGoodNode = root;
 
-        while ( ptr != null ) {
-            last = ptr;
+        while ( currentNode != null ) {
+            lastGoodNode = currentNode;
 
-            if ( n < ptr.n) {
-                ptr = ptr.left;
+            if ( n < currentNode.n) {
+                currentNode = currentNode.left;
 
-            } else if ( n > ptr.n ) {
-                ptr = ptr.right;
+            } else if ( n > currentNode.n ) {
+                currentNode = currentNode.right;
 
             } else {
-                return ptr;
+                break;
             }
         }
 
-        return last;
+        return lastGoodNode;
     }
 
     public boolean contains(final int n) {
