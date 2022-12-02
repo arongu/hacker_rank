@@ -17,6 +17,21 @@ public class Trie {
         return trie.nodes[getIndex(c)];
     }
 
+    private final char c;
+
+    private Trie(final char c) {
+        this.c = c;
+    }
+
+    public char getC() {
+        return c;
+    }
+
+    public Trie(){
+        this('/');
+    }
+
+    // getLeaf <- contains
     public Trie getLeaf(final String string) throws NoSuchElementException {
         if ( string == null || string.isEmpty() ) throw new NoSuchElementException();
 
@@ -40,6 +55,7 @@ public class Trie {
         }
     }
 
+    // insert -> contains
     private Trie addNode(final char c) {
         final int index = getIndex(c);
         Trie trie;
@@ -48,7 +64,7 @@ public class Trie {
         System.out.printf("@ %c\n", index + 'a');
         if ( nodes == null ) {
             nodes = new Trie[26];
-            trie = new Trie();
+            trie = new Trie(c);
             nodes[index] = trie;
             System.out.printf("++ %c\n", index + 'a');
 
