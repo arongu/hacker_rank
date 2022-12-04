@@ -13,7 +13,6 @@ public class TrieTest {
         trie.insert("auto");
         trie.insert("autom");
         trie.insert("autok");
-        System.out.println("-----------------");
         trie.insert("bal");
         trie.insert("balta");
         trie.insert("baltas");
@@ -29,21 +28,17 @@ public class TrieTest {
     }
 
     @Test
-    public void test1(){
-        System.out.println("------------test1");
+    public void contains(){
         assertFalse(trie.contains("x"));
         assertTrue(trie.contains("a"));
         assertTrue(trie.contains("almale"));
-
-        assertEquals('e', trie.getLeaf("almale").getC());
-
     }
 
     @Test
     public void test2(){
         System.out.println("------------test2");
         assertTrue(trie.contains("a"));
-        trie.remove("almafa", true);
+        trie.remove("almafa");
         assertFalse(trie.contains("a"));
     }
 
@@ -53,7 +48,7 @@ public class TrieTest {
         assertTrue(trie.contains("baltazar"));
         assertTrue(trie.contains("balta"));
         assertTrue(trie.contains("bal"));
-        trie.remove("baltazar", false);
+        trie.remove("baltazar");
         assertFalse(trie.contains("baltazar"));
         assertTrue(trie.contains("balta"));
         assertTrue(trie.contains("bal"));

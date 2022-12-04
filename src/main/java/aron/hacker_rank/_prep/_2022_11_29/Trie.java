@@ -128,7 +128,8 @@ public class Trie {
         }
     }
 
-    public void remove(final String string, final boolean force) {
+    // remove
+    private void removeRecursively(final String string, final boolean safe) {
         try {
             final Stack<Trie> visited = getNodesInOrder(this, string);
             Trie child = visited.pop(), parent;
@@ -137,7 +138,7 @@ public class Trie {
                 parent = visited.pop();
                 int index = getIndex(child.c);
 
-                if ( force ) {
+                if ( !safe ) {
                     child.deleteChildren();
                     parent.nodes[index] = null;
                     child = parent;
@@ -160,5 +161,13 @@ public class Trie {
         } catch (NoSuchElementException ex) {
             System.out.println("No element removed!");
         }
+    }
+
+    public void removeRecursively(final String string) {
+        removeRecursively(string, false);
+    }
+
+    public void remove(final String string) {
+        removeRecursively(string, true);
     }
 }
