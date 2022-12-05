@@ -62,7 +62,8 @@ public class BinarySearchTreeUsingComparableImpl<T extends Comparable<T>> extend
 
     @Override
     public boolean contains(final T element) {
-        return false;
+        final Node<T> node = getNodeOrItsParent(element);
+        return node != null && node.value.compareTo(element) == 0;
     }
 
     @Override
