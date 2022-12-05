@@ -1,17 +1,19 @@
 package aron.hacker_rank._prep._2022_12_04.binary_search_tree;
 
+import aron.hacker_rank._prep._2022_12_04.binary_search_tree.comparators.ComparatorInteger;
+import aron.hacker_rank._prep._2022_12_04.binary_search_tree.comparators.ComparatorString;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BinarySearchTreeTest {
-    private static final BinarySearchTree<String> treeString;
-    private static final BinarySearchTree<Integer> treeInteger;
+public class BinarySearchTreeUsingComparatorImplTest {
+    private static final BinarySearchTreeUsingComparatorImpl<String> treeString;
+    private static final BinarySearchTreeUsingComparatorImpl<Integer> treeInteger;
 
     static {
-        treeString = new BinarySearchTree<>(new ComparatorString());
-        treeInteger= new BinarySearchTree<>(new ComparatorInteger());
+        treeString = new BinarySearchTreeUsingComparatorImpl<>(new ComparatorString());
+        treeInteger= new BinarySearchTreeUsingComparatorImpl<>(new ComparatorInteger());
     }
 
     @Test

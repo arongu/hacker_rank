@@ -2,7 +2,7 @@ package aron.hacker_rank._prep._2022_12_04.binary_search_tree;
 
 import java.util.Comparator;
 
-public class BinarySearchTree<T> extends AbstractBinarySearchTree<T> {
+public class BinarySearchTreeUsingComparatorImpl<T> extends BinarySearchTreeUsingComparator<T> {
     private static class Node<T> {
         private final T value;
         private Node<T> left, right;
@@ -20,7 +20,7 @@ public class BinarySearchTree<T> extends AbstractBinarySearchTree<T> {
 
     private Node<T> root;
 
-    BinarySearchTree(final Comparator<T> comparator) {
+    BinarySearchTreeUsingComparatorImpl(final Comparator<T> comparator) {
         super(comparator);
     }
 
