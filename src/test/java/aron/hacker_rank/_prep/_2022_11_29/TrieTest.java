@@ -39,7 +39,8 @@ public class TrieTest {
         System.out.println("------------test2");
         assertTrue(trie.contains("a"));
         trie.remove("almafa");
-        assertFalse(trie.contains("a"));
+        assertTrue(trie.contains("alma"));
+        assertTrue(trie.contains("almale"));
     }
 
     @Test
