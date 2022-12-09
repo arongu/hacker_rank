@@ -28,4 +28,15 @@ public class SortsTest {
         Sorts.printArray(arr2);
         Sorts.printArray(arr3);
     }
+
+    @Test
+    public void occurrence(){
+        int[] arr1 = { 0, 1 };
+        int[] arr2 = { 0, 0, 1, 2, 2, 2, 4, 5, 0 };
+        int[] arr3 = { 1, 2, 44, 44, 12, 2, 3, 3 , 41};
+
+        assertEquals(0, Sorts.mostCommon(arr1));
+        assertEquals(0, Sorts.mostCommon(arr2));
+        assertEquals(2, Sorts.mostCommon(arr3));
+    }
 }
