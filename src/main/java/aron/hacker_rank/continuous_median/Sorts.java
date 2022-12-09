@@ -4,6 +4,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Sorts {
+    private static class IntegerWithOccurrence {
+        int number;
+        int times;
+
+        public IntegerWithOccurrence(final int number) {
+            this.number = number;
+            this.times = 1;
+        }
+
+        @Override
+        public boolean equals(final Object obj) {
+            if ( !(obj instanceof IntegerWithOccurrence other) ) return false;
+            if (this == obj) return true;  // self check
+
+            return number == other.number;
+        }
+    }
+
     public static void printArray(final int[] arr) {
         for (int i : arr) System.out.printf("%d ", i);
         System.out.println();
