@@ -38,5 +38,9 @@ public class SortsTest {
         assertEquals(0, Sorts.mostCommon(arr1));
         assertEquals(0, Sorts.mostCommon(arr2));
         assertEquals(2, Sorts.mostCommon(arr3));
+
+        assertEquals(0.5, Sorts.average(arr1));
+        assertEquals(1.7777777777777777, Sorts.average(arr2));
+        assertEquals(16.88888888888889, Sorts.average(arr3));
     }
 }
