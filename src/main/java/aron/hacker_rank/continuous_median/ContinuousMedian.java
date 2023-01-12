@@ -18,6 +18,9 @@ package aron.hacker_rank.continuous_median;
     1 3 2
     1 2 3
 
+    2 buckets one for the smaller numbers one for the big ones
+    - when number comes in -> determine which bucket it goes
+
 */
 
 public class ContinuousMedian {
