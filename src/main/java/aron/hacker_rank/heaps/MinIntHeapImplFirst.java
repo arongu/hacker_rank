@@ -1,6 +1,8 @@
 package aron.hacker_rank.heaps;
 
 /*
+    First implementation
+
       2
     8  7
    12  16
@@ -21,7 +23,7 @@ Mappings:
 
 import java.util.ArrayList;
 
-public class MinIntHeap2 {
+public class MinIntHeapImplFirst implements MintIntHeap {
     // index
     private static int getLeftChildIndex (final int index) { return index * 2 + 1; }
     private static int getRightChildIndex(final int index) { return index * 2 + 2; }
@@ -73,13 +75,15 @@ public class MinIntHeap2 {
         }
     }
 
+    @Override
     public int peek() throws IllegalStateException {
         if ( items.size() == 0 ) throw new IllegalStateException();
 
         return items.get(0);
     }
 
-    public int pop() throws IllegalStateException {
+    @Override
+    public int poll() throws IllegalStateException {
         if ( items.size() == 0 ) throw new IllegalStateException();
 
         final int tmp = items.get(0);
@@ -94,8 +98,14 @@ public class MinIntHeap2 {
         return tmp;
     }
 
+    @Override
     public void add(final int item) {
         items.set(items.size(), item);
         heapifyUp();
+    }
+
+    @Override
+    public int size() {
+        return items.size();
     }
 }
