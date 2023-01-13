@@ -86,21 +86,24 @@ public class MinIntHeapImplFirst implements MintIntHeap {
     public int poll() throws IllegalStateException {
         if ( items.size() == 0 ) throw new IllegalStateException();
 
-        final int tmp = items.get(0);
+        final int head = items.get(0);
+        final int tailIndex = items.size() - 1;
+
         if ( items.size() == 1 ) {
             items.clear();
 
         } else {
-            items.set(0, items.get(items.size() - 1));
+            items.set(0, items.get(tailIndex));
+            items.remove(tailIndex);
             heapifyDown();
         }
 
-        return tmp;
+        return head;
     }
 
     @Override
     public void add(final int item) {
-        items.set(items.size(), item);
+        items.add(item);
         heapifyUp();
     }
 
