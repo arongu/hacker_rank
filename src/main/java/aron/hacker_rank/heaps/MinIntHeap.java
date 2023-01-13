@@ -21,7 +21,7 @@ public class MinIntHeap {
     // check
     private boolean hasLeftChild (final int index) { return getLeftChildIndex(index) < size; }
     private boolean hasRightChild(final int index) { return getRightChildIndex(index) < size; }
-    private boolean hasParent    (final int index) { return getParent(index) < size; }
+    private boolean hasParent    (final int index) { return getParentIndex(index) < size; }
     // get
     private int getLeftChild (final int index) { return items[getLeftChildIndex(index)]; }
     private int getRightChild(final int index) { return items[getRightChildIndex(index)]; }
@@ -40,13 +40,13 @@ public class MinIntHeap {
         }
     }
 
-    public int peek() throws IllegalAccessException {
-        if ( size == 0 ) throw new IllegalAccessException();
+    public int peek() throws IllegalStateException {
+        if ( size == 0 ) throw new IllegalStateException();
         return items[0];
     }
 
-    public int pull() throws IllegalAccessException {
-        if ( size == 0 ) throw new IllegalAccessException();
+    public int pull() throws IllegalStateException {
+        if ( size == 0 ) throw new IllegalStateException();
         final int item = items[0];
         items[0] = items[size - 1];
         size--;
