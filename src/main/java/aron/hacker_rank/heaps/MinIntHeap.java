@@ -45,7 +45,7 @@ public class MinIntHeap {
         return items[0];
     }
 
-    public int poll() throws IllegalAccessException {
+    public int pull() throws IllegalAccessException {
         if ( size == 0 ) throw new IllegalAccessException();
         final int item = items[0];
         items[0] = items[size - 1];
