@@ -21,7 +21,6 @@ public class MinIntHeapImpTest {
         assertEquals(2, mintIntHeap.poll());
         assertEquals(2, mintIntHeap.size());
 
-
         assertEquals(5, mintIntHeap.peek());
         assertEquals(5, mintIntHeap.poll());
         assertEquals(1, mintIntHeap.size());
