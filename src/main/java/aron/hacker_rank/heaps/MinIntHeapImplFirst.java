@@ -23,7 +23,7 @@ Mappings:
 
 import java.util.ArrayList;
 
-public class MinIntHeapImplFirst implements MintIntHeap {
+public class MinIntHeapImplFirst implements MinIntHeap {
     // index
     private static int getLeftChildIndex (final int index) { return index * 2 + 1; }
     private static int getRightChildIndex(final int index) { return index * 2 + 2; }

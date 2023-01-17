@@ -1,14 +1,13 @@
-package aron.hacker_rank.heaps.exercises._2023_01_16;
+package aron.hacker_rank.heaps.exercises._2023_01_17;
 
-import aron.hacker_rank.heaps.MintIntHeap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MinIntHeapImplFirstTest {
+public class MinIntHeapImpTest {
     @Test
     void test() {
-        final MintIntHeap mintIntHeap = new MinIntHeapImpl();
+        final MinIntHeap mintIntHeap = new MinIntHeapImpl();
 
         mintIntHeap.add(10);
         assertEquals(10, mintIntHeap.peek());

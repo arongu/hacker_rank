@@ -10,7 +10,7 @@ package aron.hacker_rank.heaps;
 
 import java.util.Arrays;
 
-public class MinIntHeapImpl implements  MintIntHeap {
+public class MinIntHeapImpl implements MinIntHeap {
     private static int getLeftChildIndex (final int parentIndex) { return parentIndex * 2 + 1; }
     private static int getRightChildIndex(final int parentIndex) { return parentIndex * 2 + 2; }
     private static int getParentIndex    (final int childIndex)  { return (childIndex - 1) / 2; }

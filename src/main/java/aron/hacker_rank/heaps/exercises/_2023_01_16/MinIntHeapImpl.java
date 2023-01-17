@@ -1,6 +1,6 @@
 package aron.hacker_rank.heaps.exercises._2023_01_16;
 
-import aron.hacker_rank.heaps.MintIntHeap;
+import aron.hacker_rank.heaps.MinIntHeap;
 
 import java.util.ArrayList;
 /*
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 */
 
-public class MinIntHeapImpl implements MintIntHeap {
+public class MinIntHeapImpl implements MinIntHeap {
     // calc index
     private static int getLeftChildIndex (final int index) { return index * 2 + 1; }
     private static int getRightChildIndex(final int index) { return index * 2 + 2; }
