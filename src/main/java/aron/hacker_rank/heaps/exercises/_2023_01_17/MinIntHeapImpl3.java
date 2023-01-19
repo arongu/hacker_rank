@@ -64,7 +64,7 @@ public class MinIntHeapImpl3 implements MinIntHeap {
     }
 
     @Override
-    public int peek() {
+    public int peek() throws IllegalStateException {
         if ( items.isEmpty() ) throw new IllegalStateException();
         return items.get(0);
     }

@@ -73,7 +73,7 @@ public class MinIntHeapImpl2 implements MinIntHeap {
     }
 
     @Override
-    public int poll() {
+    public int poll() throws IllegalStateException {
         if ( items.isEmpty() ) throw new IllegalStateException();
 
         final int tailIndex = items.size() - 1;
