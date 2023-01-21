@@ -1,4 +1,4 @@
-package aron.hacker_rank.heaps;
+package aron.hacker_rank.heaps.min;
 
 /*
     From HackerRank

@@ -1,6 +1,6 @@
 package aron.hacker_rank.heaps.exercises._2023_01_16;
 
-import aron.hacker_rank.heaps.MinIntHeap;
+import aron.hacker_rank.heaps.min.MinIntHeap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

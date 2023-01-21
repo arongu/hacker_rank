@@ -1,4 +1,4 @@
-package aron.hacker_rank.heaps;
+package aron.hacker_rank.heaps.min;
 
 public interface MinIntHeap {
     void add(final int item);
