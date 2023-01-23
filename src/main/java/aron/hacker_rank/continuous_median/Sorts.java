@@ -15,8 +15,8 @@ public class Sorts {
 
         @Override
         public boolean equals(final Object obj) {
-            if ( !(obj instanceof IntegerWithOccurrence other) ) return false;
             if (this == obj) return true;  // self check
+            if ( !(obj instanceof IntegerWithOccurrence other) ) return false;
 
             return number == other.number;
         }
@@ -80,7 +80,9 @@ public class Sorts {
         return (double) sum / arr.length;
     }
 
-    public static int mostCommon(final int[] arr) {
+    public static int mostCommon(final int[] arr) throws IllegalStateException {
+        if ( arr.length == 0 ) throw new IllegalStateException();
+
         final Map<Integer,Integer> collector = new HashMap<>();
 
         for ( int n : arr ) {
