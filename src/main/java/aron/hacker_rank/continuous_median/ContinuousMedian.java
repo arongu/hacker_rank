@@ -64,7 +64,6 @@ public class ContinuousMedian {
         }
     }
 
-
     public static double[] getMedians(int[] array) {
         final Comparator<Integer> inverseComparator = (left, right) -> -1 * left.compareTo(right);
         final PriorityQueue<Integer> lowers  = new PriorityQueue<>(inverseComparator);
