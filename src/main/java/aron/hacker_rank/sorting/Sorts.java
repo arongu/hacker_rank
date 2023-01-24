@@ -1,4 +1,4 @@
-package aron.hacker_rank.continuous_median;
+package aron.hacker_rank.sorting;
 
 import java.util.HashMap;
 import java.util.Map;

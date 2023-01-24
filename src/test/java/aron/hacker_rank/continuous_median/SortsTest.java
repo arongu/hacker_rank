@@ -1,5 +1,6 @@
 package aron.hacker_rank.continuous_median;
 
+import aron.hacker_rank.sorting.Sorts;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
