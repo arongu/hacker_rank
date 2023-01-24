@@ -43,8 +43,8 @@ public class ContinuousMedian {
     public static void reBalance(final PriorityQueue<Integer> lowers,
                                  final PriorityQueue<Integer> highers) {
 
-        final PriorityQueue<Integer> biggerHeap  = lowers.size() > highers.size() ? lowers : highers;
-        final PriorityQueue<Integer> smallerHeap = lowers.size() < highers.size() ? lowers : highers;
+        final PriorityQueue<Integer> biggerHeap  = lowers.size()  > highers.size() ? lowers  : highers;
+        final PriorityQueue<Integer> smallerHeap = highers.size() > lowers.size()  ? highers : lowers; // this is bad >= should be because what if both are the same size then what?
 
         if ( biggerHeap.size() - smallerHeap.size() >= 2 ) {
             smallerHeap.add(biggerHeap.poll());

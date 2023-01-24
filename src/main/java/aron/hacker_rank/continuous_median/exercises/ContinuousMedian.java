@@ -15,13 +15,14 @@ public class ContinuousMedian {
         }
     }
 
+    // 4 3 2 1 l4, l3
     private static void reBalance(final PriorityQueue<Integer> lowers,
                                   final PriorityQueue<Integer> highers) {
 
         final PriorityQueue<Integer> smaller = lowers.size() < highers.size() ? lowers : highers;
         final PriorityQueue<Integer> bigger  = lowers.size() > highers.size() ? lowers : highers;
 
-        if ( bigger.size() - smaller.size() >= 2 ) {
+        if ( bigger.size() - smaller.size() >= 2 ) { // > 1 -> =2
             smaller.add(bigger.poll());
         }
     }
@@ -29,8 +30,8 @@ public class ContinuousMedian {
     private static double getMedian(final PriorityQueue<Integer> lowers,
                                     final PriorityQueue<Integer> highers) {
 
-        final PriorityQueue<Integer> biggerHeap  = lowers.size() > highers.size() ? lowers : highers;
-        final PriorityQueue<Integer> smallerHeap = lowers.size() < highers.size() ? lowers : highers;
+        final PriorityQueue<Integer> biggerHeap  = lowers.size() >  highers.size() ? lowers : highers;
+        final PriorityQueue<Integer> smallerHeap = lowers.size() <= highers.size() ? lowers : highers;
 
         // peek give you null when there are no elements in the heap
         if ( biggerHeap.size() == smallerHeap.size() ) {
