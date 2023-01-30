@@ -66,11 +66,11 @@ public class BinarySearchTreeImpl<T extends Comparable<T>> implements BinarySear
 
     @Override
     public boolean contains(final T element) {
-        return root.contains(element);
+        return root != null && root.contains(element);
     }
 
     @Override
     public void printInOrder() {
-        root.printInOrder();
+        if ( root != null ) root.printInOrder();
     }
 }
